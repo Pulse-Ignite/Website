@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About – Pulse Ignite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family:'Montserrat',sans-serif;line-height:1.6;color:#fff;background:#111;}
+    a{text-decoration:none;color:inherit;}
+
+    /* Navbar */
+    nav {
+      display:flex;justify-content:space-between;align-items:center;
+      padding:20px 50px;
+      background:rgba(0,0,0,0.5);
+      position:fixed;width:100%;z-index:10;
+      backdrop-filter:blur(10px);
+    }
+    nav .logo{display:flex;align-items:center;gap:10px;font-size:1.8rem;font-weight:700;color:#ff6ec7;}
+    nav .logo img{width:40px;height:40px;}
+    nav ul{display:flex;gap:25px;list-style:none;}
+    nav ul li{cursor:pointer;font-weight:500;transition:.3s;}
+    nav ul li:hover{color:#1fddff;}
+
+    /* Hero / About Banner */
+    .hero{
+      height:60vh;
+      display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+      padding:120px 20px 50px;
+      background:radial-gradient(circle at top left,#ff6ec7,#1f1c2c);
+      position:relative;
+    }
+    .hero h1{font-size:4rem;font-weight:800;margin-bottom:20px;le
