@@ -153,42 +153,36 @@
     <p>© 2025 Pulse Ignite. We are a fiscally-sponsored organization.</p>
   </footer>
 
-  <!-- Google Sheets / Tabletop.js to dynamically load events -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
-<script>
-  window.onload = function() {
-    Tabletop.init({
-      key: 'NetsoE7FiLYSGk2rmh6gzCG7E10RPNYQZ66mwgQE', // replace with your sheet URL
-      callback: showEvents,
-      simpleSheet: true
-    });
-  };
+  <!-- Load events from published CSV -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <script>
+    const sheetUrl = "PASTE_YOUR_PUBLISHED_CSV_URL_HERE"; // Replace with your published CSV link
 
-  function showEvents(data) {
-    const container = document.getElementById('events-list');
+    fetch(sheetUrl)
+      .then(response => response.text())
+      .then(csvText => {
+        const data = Papa.parse(csvText, { header: true }).data;
 
-    // Convert date strings to Date objects and sort ascending
-    data.forEach(event => {
-      event.DateObj = new Date(event.Date);
-    });
-    data.sort((a, b) => a.DateObj - b.DateObj);
+        // Convert Date strings to Date objects and sort ascending
+        data.forEach(event => event.DateObj = new Date(event.Date));
+        data.sort((a,b) => a.DateObj - b.DateObj);
 
-    // Create cards
-    data.forEach(event => {
-      const div = document.createElement('div');
-      div.className = 'event-card';
-      div.innerHTML = `
-        <h3>${event.Title}</h3>
-        <p><strong>Date:</strong> ${event.DateObj.toLocaleDateString()}</p>
-        <p>${event.Description}</p>
-        ${event.Link ? `<a href="${event.Link}" target="_blank">More Info</a>` : ''}
-      `;
-      container.appendChild(div);
-    });
-  }
-</script>
-
+        // Render events
+        const container = document.getElementById('events-list');
+        data.forEach(event => {
+          const div = document.createElement('div');
+          div.className = 'event-card';
+          div.innerHTML = `
+            <h3>${event.Title}</h3>
+            <p><strong>Date:</strong> ${event.DateObj.toLocaleDateString()}</p>
+            <p>${event.Description}</p>
+            ${event.Link ? `<a href="${event.Link}" target="_blank">More Info</a>` : ''}
+          `;
+          container.appendChild(div);
+        });
+      })
+      .catch(err => console.error("Error loading events:", err));
+  </script>
 
 </body>
 </html>
