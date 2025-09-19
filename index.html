@@ -44,6 +44,8 @@
     .hero p { font-size: 1.5rem; margin-bottom: 40px; max-width: 700px; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
     .hero .btn { padding: 15px 40px; font-size: 1.2rem; font-weight: 700; border-radius: 50px; background: linear-gradient(45deg, #ff6ec7, #1fddff); box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: 0.3s; }
     .hero .btn:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
+    .hero { padding-top: 100px; }
+
 
     /* Sections */
     section {
@@ -72,6 +74,12 @@
     .research h2 { font-size: 2.8rem; margin-bottom: 40px; color: #ff6ec7; }
     .research p { max-width: 700px; margin: 0 auto 20px; font-size: 1.2rem; }
 
+     /* Pulse Section */
+    .pulse { background: #111; }
+    .pulse h2 { font-size: 2.8rem; margin-bottom: 40px; color: #ff6ec7; }
+    .pulse p { max-width: 700px; margin: 0 auto 20px; font-size: 1.2rem; }
+    .pulse { background: linear-gradient(135deg, #222, #111); }
+
     /* Footer */
     footer {
       background: #111;
@@ -80,7 +88,7 @@
       font-size: 0.9rem;
       color: rgba(255,255,255,0.6);
     }
-
+    
     /* Responsive */
     @media (max-width: 768px) {
       nav { padding: 20px 30px; }
@@ -97,8 +105,11 @@
     <div class="logo">Pulse Ignite</div>
     <ul>
       <li>Home</li>
-      <li>Features</li>
-      <li>Research</li>
+      <li>About</li>
+      <li>Pulse</li>
+      <li>Events</li>
+      <li>Volunteer</li>
+      <li>Donate</li>
       <li>Contact</li>
     </ul>
   </nav>
@@ -115,30 +126,39 @@
     <h2>What We Do</h2>
     <div class="feature-cards">
       <div class="card">
-        <h3>Health Tracking</h3>
-        <p>Monitor your vital signs, daily habits, and wellness progress with intuitive tools.</p>
-      </div>
-      <div class="card">
         <h3>Education</h3>
         <p>Learn about health topics, research breakthroughs, and best practices for well-being.</p>
       </div>
       <div class="card">
-        <h3>Research Insights</h3>
-        <p>Access curated data, community studies, and health discoveries to stay informed.</p>
+        <h3>Tools</h3>
+        <p>Have access to a variety of tools, including health trackers, educational resources, and  more.</p>
+      </div>
+      <div class="card">
+        <h3>Events</h3>
+        <p>Attend events, get certifications, ask questions, network, and learn new skills.</p>
+      </div>
+      <div class="card">
+        <h3>NEW! Research Database</h3>
+        <p>Access curated data, community studies, and resources to help curate the best research.</p>
       </div>
     </div>
   </section>
-
+  <section class="pulse">
+     <h2>Pulse</h2>
+     <p>Pulse is an all-in-one health and research app, designed to make health simpler.</p>
+     <a href="#" class="btn">Learn More</a>
+  </section>
   <!-- Research & Education Section -->
   <section class="research">
     <h2>Research & Health Education</h2>
     <p>Pulse Ignite bridges science and community. Our platform provides students and enthusiasts with tools to explore health research while learning actionable knowledge for real-life wellness.</p>
     <p>From understanding disease mechanisms to implementing healthy habits, Pulse Ignite makes research approachable, fun, and impactful.</p>
+    <a href="#" class="btn">Sign Up</a>
   </section>
 
   <!-- Footer -->
   <footer>
-    © 2025 Pulse Ignite | Designed with ❤️
+    © 2025 Pulse Ignite. We are a fiscally-sponsored organization. 
   </footer>
 
 </body>
