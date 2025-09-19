@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulse App - Free Health & Research Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    /* Base reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #fff; background: #111; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 50px;
+      background: rgba(0,0,0,0.5);
+      position: fixed;
+      width: 100%;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      height: 80px;
+    }
+    nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ff6ec7;
+    }
+    nav .logo img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+    nav ul { display: flex; gap: 25px; list-style: none; }
+    nav ul li a { cursor: pointer; font-weight: 500; transition: 0.3s; display: block; line-height: 80px; }
+    nav ul li a:hover { color: #1fddff; }
+
+    /* Development Banner */
+    .development-banner {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      background: rgba(255, 110, 199, 0.9);
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      z-index: 9;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.8; }
+      50% { opacity: 1; }
+      100% { opacity: 0.8; }
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 20px 50px;
+      background: linear-gradient(135deg, #1fddff, #ff6ec7);
+      position: relative;
+    }
+    .hero h1 {
+      font-size: 5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+      max-width: 700px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+
+    /* App Features Section */
+    .app-features {
+      background: #111;
+      padding: 100px 50px;
+      text-align: center;
+    }
+    .app-features h2 {
+      font-size: 2.8rem;
+      margin-bottom: 60px;
+      color: #ff6ec7;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    }
+    .feature-card h3 {
+      margin-bottom: 15px;
+      color: #1fddff;
+    }
+    .feature-card p {
+      font-size: 1rem;
+    }
+
+    /* Screenshots Section */
+    .screenshots {
+      background: linear-gradient(135deg, #1fddff, #ff6ec7);
+      padding: 100px 50px;
+      text-align: center;
+    }
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .screenshot {
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 20px;
+      transition: 0.3s;
+    }
+    .screenshot:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    }
+    .screenshot img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    /* Download Section */
+    .download {
+      background: #111;
+      padding: 100px 50px;
+      text-align: center;
+    }
+    .download h2 {
+      font-size: 2.8rem;
+      margin-bottom: 40px;
+      color: #ff6ec7;
+    }
+    .download p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .download-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .btn-store {
+      background: linear-gradient(45deg, #1fddff, #00bfff);
+      color: #111;
+      box-shadow: 0 10px 20px rgba(31, 221, 255, 0.3);
+    }
+    .btn-store:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(31, 221, 255, 0.5);
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #111, #1f1c2c);
+      padding: 50px;
+      color: rgba(255,255,255,0.9);
+    }
+    footer .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    footer .column { flex: 1 1 200px; }
+    footer h4 { color: #ff6ec7; margin-bottom: 20px; }
+    footer a { display: block; margin-bottom: 10px; color: #fff; transition: 0.3s; }
+    footer a:hover { color: #1fddff; }
+    footer p { margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav { padding: 0 30px; }
+      nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; margin-top: 10px; }
+      .hero h1 { font-size: 3.5rem; }
+      .hero p { font-size: 1.2rem; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .screenshot-grid { grid-template-columns: 1fr; }
+      .download-buttons { flex-direction: column; }
+      footer
