@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events - Pulse Ignite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    /* Base reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #fff; background: #111; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 50px;
+      background: rgba(0,0,0,0.5);
+      position: fixed;
+      width: 100%;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      height: 80px;
+    }
+    nav .logo { display: flex; align-items: center; gap: 10px; font-size: 1.8rem; font-weight: 700; color: #ff6ec7; }
+    nav .logo img { width: 60px; height: 60px; object-fit: contain; }
+    nav ul { display: flex; gap: 25px; list-style: none; }
+    nav ul li a { cursor: pointer; font-weight: 500; transition: 0.3s; display: block; line-height: 80px; }
+    nav ul li a:hover { color: #1fddff; }
+
+    /* Hero Section */
+    .hero {
+      height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 20px 50px;
+      background: radial-gradient(circle at top left, #ff6ec7, #1f1c2c);
+      position: relative;
+    }
+    .hero h1 { font-size: 4rem; font-weight: 800; margin-bottom: 20px; letter-spacing: 2px; text-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+    .hero p { font-size: 1.3rem; max-width: 700px; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
+
+    /* Events Section */
+    section { padding: 100px 50px; text-align: center; position: relative; }
+    h2 { font-size: 2.8rem; margin-bottom: 40px; color: #ff6ec7; }
+    p { max-width: 800px; margin: 0 auto 20px; font-size: 1.2rem; color: #fff; }
+
+    .events-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin-top: 40px; }
+    .event-card {
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      padding: 25px;
+      border-radius: 20px;
+      width: 280px;
+      transition: 0.3s;
+      text-align: left;
+    }
+    .event-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.7);
+    }
+    .event-card h3 { color: #1fddff; margin-bottom: 10px; }
+    .event-card p { color: #fff; font-size: 1rem; margin-bottom: 10px; }
+    .event-card a { color: #ff6ec7; font-weight: 600; }
+    .event-card a:hover { color: #1fddff; }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #111, #1f1c2c);
+      padding: 50px;
+      color: rgba(255,255,255,0.9);
+    }
+    footer .footer-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; max-width: 1200px; margin: 0 auto; }
+    footer .column { flex: 1 1 200px; }
+    footer h4 { color: #ff6ec7; margin-bottom: 20px; }
+    footer a { display: block; margin-bottom: 10px; color: #fff; transition: 0.3s; }
+    footer a:hover { color: #1fddff; }
+    footer p { margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav { padding: 0 30px; }
+      nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; margin-top: 10px; }
+      .hero h1 { font-size: 3rem; }
+      .hero p { font-size: 1.1rem; }
+      .events-container { flex-direction: column; align-items: center; gap: 20px; }
+      footer .footer-container { flex-direction: column; align-items: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">
+      <img src="logo.png" alt="Pulse Ignite Logo">
+      Pulse Ignite
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#pulse">Pulse</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="index.html#volunteer">Volunteer</a></li>
+      <li><a href="index.html#donate">Donate</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Upcoming Events</h1>
+    <p>Stay up to date with Pulse Ignite events. New events are automatically added here as they are announced.</p>
+  </div>
+
+  <!-- Events Section -->
+  <section>
+    <h2>Events</h2>
+    <div class="events-container" id="events-list">
+      <!-- Events will be dynamically added here -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="column">
+        <h4>Pulse Ignite</h4>
+        <p>Empowering youth and communities in health, education, and research.</p>
+      </div>
+      <div class="column">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#pulse">Pulse</a>
+        <a href="events.html">Events</a>
+        <a href="index.html#volunteer">Volunteer</a>
+      </div>
+      <div class="column">
+        <h4>Contact</h4>
+        <a href="mailto:info@pulseignite.org">info@pulseignite.org</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+    <p>© 2025 Pulse Ignite. We are a fiscally-sponsored organization.</p>
+  </footer>
+
+  <!-- Google Sheets / Tabletop.js to dynamically load events -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
+<script>
+  window.onload = function() {
+    Tabletop.init({
+      key: 'https://docs.google.com/spreadsheets/d/1qhLNetsoE7FiLYSGk2rmh6gzCG7E10RPNYQZ66mwgQE/edit?usp=sharing', // replace with your sheet URL
+      callback: showEvents,
+      simpleSheet: true
+    });
+  };
+
+  function showEvents(data) {
+    const container = document.getElementById('events-list');
+
+    // Convert date strings to Date objects and sort ascending
+    data.forEach(event => {
+      event.DateObj = new Date(event.Date);
+    });
+    data.sort((a, b) => a.DateObj - b.DateObj);
+
+    // Create cards
+    data.forEach(event => {
+      const div = document.createElement('div');
+      div.className = 'event-card';
+      div.innerHTML = `
+        <h3>${event.Title}</h3>
+        <p><strong>Date:</strong> ${event.DateObj.toLocaleDateString()}</p>
+        <p>${event.Description}</p>
+        ${event.Link ? `<a href="${event.Link}" target="_blank">More Info</a>` : ''}
+      `;
+      container.appendChild(div);
+    });
+  }
+</script>
+
+
+</body>
+</html>
