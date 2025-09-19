@@ -7,75 +7,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="logo.png">
   <style>
-    /* Base reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #fff; background: #111; }
     a { text-decoration: none; color: inherit; }
 
-    /* Navbar */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 50px;
-      background: rgba(0,0,0,0.5);
-      position: fixed;
-      width: 100%;
-      z-index: 10;
-      backdrop-filter: blur(10px);
-      height: 80px;
-    }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 0 50px; background: rgba(0,0,0,0.5); position: fixed; width: 100%; z-index: 10; backdrop-filter: blur(10px); height: 80px; }
     nav .logo { display: flex; align-items: center; gap: 10px; font-size: 1.8rem; font-weight: 700; color: #ff6ec7; }
     nav .logo img { width: 60px; height: 60px; object-fit: contain; }
     nav ul { display: flex; gap: 25px; list-style: none; }
     nav ul li a { cursor: pointer; font-weight: 500; transition: 0.3s; display: block; line-height: 80px; }
     nav ul li a:hover { color: #1fddff; }
 
-    /* Hero Section */
-    .hero {
-      height: 50vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 120px 20px 50px;
-      background: radial-gradient(circle at top left, #ff6ec7, #1f1c2c);
-      position: relative;
-    }
+    .hero { height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 20px 50px; background: radial-gradient(circle at top left, #ff6ec7, #1f1c2c); position: relative; }
     .hero h1 { font-size: 4rem; font-weight: 800; margin-bottom: 20px; letter-spacing: 2px; text-shadow: 0 4px 15px rgba(0,0,0,0.5); }
     .hero p { font-size: 1.3rem; max-width: 700px; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
 
-    /* Events Section */
     section { padding: 100px 50px; text-align: center; position: relative; }
     h2 { font-size: 2.8rem; margin-bottom: 40px; color: #ff6ec7; }
     p { max-width: 800px; margin: 0 auto 20px; font-size: 1.2rem; color: #fff; }
 
     .events-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin-top: 40px; }
-    .event-card {
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(10px);
-      padding: 25px;
-      border-radius: 20px;
-      width: 280px;
-      transition: 0.3s;
-      text-align: left;
-    }
-    .event-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.7);
-    }
+    .event-card { background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); padding: 25px; border-radius: 20px; width: 280px; transition: 0.3s; text-align: left; }
+    .event-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.7); }
     .event-card h3 { color: #1fddff; margin-bottom: 10px; }
     .event-card p { color: #fff; font-size: 1rem; margin-bottom: 10px; }
     .event-card a { color: #ff6ec7; font-weight: 600; }
     .event-card a:hover { color: #1fddff; }
 
-    /* Footer */
-    footer {
-      background: linear-gradient(135deg, #111, #1f1c2c);
-      padding: 50px;
-      color: rgba(255,255,255,0.9);
-    }
+    footer { background: linear-gradient(135deg, #111, #1f1c2c); padding: 50px; color: rgba(255,255,255,0.9); }
     footer .footer-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; max-width: 1200px; margin: 0 auto; }
     footer .column { flex: 1 1 200px; }
     footer h4 { color: #ff6ec7; margin-bottom: 20px; }
@@ -83,7 +42,6 @@
     footer a:hover { color: #1fddff; }
     footer p { margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
 
-    /* Responsive */
     @media (max-width: 768px) {
       nav { padding: 0 30px; }
       nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; margin-top: 10px; }
@@ -96,7 +54,6 @@
 </head>
 <body>
 
-  <!-- Navbar -->
   <nav>
     <div class="logo">
       <img src="logo.png" alt="Pulse Ignite Logo">
@@ -113,21 +70,16 @@
     </ul>
   </nav>
 
-  <!-- Hero -->
   <div class="hero">
     <h1>Upcoming Events</h1>
-    <p>Stay up to date with Pulse Ignite events. New events are automatically added here as they are announced.</p>
+    <p>Stay up to date with Pulse Ignite events. New events are automatically added here.</p>
   </div>
 
-  <!-- Events Section -->
   <section>
     <h2>Events</h2>
-    <div class="events-container" id="events-list">
-      <!-- Events will be dynamically added here -->
-    </div>
+    <div class="events-container" id="events-list"></div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-container">
       <div class="column">
@@ -153,23 +105,24 @@
     <p>© 2025 Pulse Ignite. We are a fiscally-sponsored organization.</p>
   </footer>
 
-  <!-- Load events from published CSV -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
   <script>
-    const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS-LHbQ9KE1dZVx1VhTHXzVp2vl9yQgG70mRW8q-t1hxC9hLnUx9fKptfw-q5exTkLbdGtU8c9cSNaL/pubhtml"; // Replace with your published CSV link
+    const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS-LHbQ9KE1dZVx1VhTHXzVp2vl9yQgG70mRW8q-t1hxC9hLnUx9fKptfw-q5exTkLbdGtU8c9cSNaL/pub?output=csv"; // ← Replace with your CSV link
 
     fetch(sheetUrl)
       .then(response => response.text())
       .then(csvText => {
         const data = Papa.parse(csvText, { header: true }).data;
 
-        // Convert Date strings to Date objects and sort ascending
-        data.forEach(event => event.DateObj = new Date(event.Date));
-        data.sort((a,b) => a.DateObj - b.DateObj);
+        // Remove empty rows
+        const cleanData = data.filter(row => row.Title && row.Date);
 
-        // Render events
+        // Convert Date strings and sort
+        cleanData.forEach(event => event.DateObj = new Date(event.Date));
+        cleanData.sort((a,b) => a.DateObj - b.DateObj);
+
         const container = document.getElementById('events-list');
-        data.forEach(event => {
+        cleanData.forEach(event => {
           const div = document.createElement('div');
           div.className = 'event-card';
           div.innerHTML = `
