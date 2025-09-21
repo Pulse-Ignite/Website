@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="logo.png">
 <style>
-  /* Base reset */
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #fff; background: #111; }
   a { text-decoration: none; color: inherit; }
@@ -36,7 +35,11 @@
       color: #ff6ec7;
   }
   nav .logo img { width: 50px; height: 50px; object-fit: contain; }
-  nav ul { display: flex; gap: 25px; list-style: none; }
+  nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+  }
   nav ul li a {
       cursor: pointer;
       font-weight: 500;
@@ -46,6 +49,22 @@
       padding: 5px 0;
   }
   nav ul li a:hover { color: #1fddff; }
+
+  /* Hamburger */
+  .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 20px;
+      cursor: pointer;
+  }
+  .hamburger div {
+      width: 100%;
+      height: 3px;
+      background-color: #ff6ec7;
+      border-radius: 2px;
+  }
 
   /* Development Banner */
   .development-banner {
@@ -62,11 +81,7 @@
       animation: pulse 2s infinite;
       font-size: 1rem;
   }
-  @keyframes pulse {
-      0% { opacity: 0.85; }
-      50% { opacity: 1; }
-      100% { opacity: 0.85; }
-  }
+  @keyframes pulse { 0% { opacity: 0.85; } 50% { opacity: 1; } 100% { opacity: 0.85; } }
 
   /* Hero Section */
   .hero {
@@ -94,144 +109,45 @@
       text-shadow: 0 3px 10px rgba(0,0,0,0.4);
   }
 
-  /* App Features Section */
-  .app-features {
-      background: #111;
-      padding: 120px 50px;
-      text-align: center;
-  }
-  .app-features h2 {
-      font-size: 2.8rem;
-      margin-bottom: 60px;
-      color: #ff6ec7;
-  }
-  .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-  }
-  .feature-card {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(12px);
-      padding: 30px;
-      border-radius: 20px;
-      transition: 0.3s;
-  }
-  .feature-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-  }
-  .feature-card h3 {
-      margin-bottom: 15px;
-      color: #1fddff;
-  }
-  .feature-card p { font-size: 1rem; }
+  /* Sections */
+  .app-features, .download { padding: 120px 50px; text-align: center; }
+  .app-features h2, .download h2 { font-size: 2.8rem; margin-bottom: 60px; color: #ff6ec7; }
+  .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 40px; max-width:1200px; margin:0 auto; }
+  .feature-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); padding: 30px; border-radius: 20px; transition: 0.3s; }
+  .feature-card:hover { transform: translateY(-10px); box-shadow:0 15px 30px rgba(0,0,0,0.5); }
+  .feature-card h3 { margin-bottom: 15px; color:#1fddff; }
+  .feature-card p { font-size:1rem; }
 
-  /* Screenshots Section */
-  .screenshots {
-      background: linear-gradient(135deg, #1fddff, #6a11cb);
-      padding: 100px 50px;
-      text-align: center;
-  }
-  .screenshot-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-  }
-  .screenshot {
-      background: rgba(255,255,255,0.1);
-      border-radius: 20px;
-      padding: 20px;
-      transition: 0.3s;
-  }
-  .screenshot:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-  }
-  .screenshot img {
-      width: 100%;
-      height: 500px;
-      object-fit: cover;
-      border-radius: 15px;
-  }
+  .screenshots { background: linear-gradient(135deg,#1fddff,#6a11cb); padding:100px 50px; text-align:center; }
+  .screenshot-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; max-width:1200px; margin:0 auto; }
+  .screenshot { background: rgba(255,255,255,0.1); border-radius:20px; padding:20px; transition:0.3s; }
+  .screenshot:hover { transform:scale(1.05); box-shadow:0 15px 30px rgba(0,0,0,0.5); }
+  .screenshot img { width:100%; height:500px; object-fit:cover; border-radius:15px; }
 
-  /* Download Section */
-  .download {
-      background: #111;
-      padding: 100px 50px;
-      text-align: center;
-  }
-  .download h2 {
-      font-size: 2.8rem;
-      margin-bottom: 40px;
-      color: #ff6ec7;
-  }
-  .download p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      max-width: 700px;
-      margin: 0 auto 30px auto;
-  }
-  .download-buttons {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-  }
-  .btn {
-      padding: 15px 40px;
-      font-size: 1.2rem;
-      font-weight: 700;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      display: inline-block;
-      margin-top: 20px;
-      text-align: center;
-  }
-  .btn-store {
-      background: linear-gradient(45deg, #1fddff, #00bfff);
-      color: #111;
-      box-shadow: 0 10px 20px rgba(31, 221, 255, 0.3);
-  }
-  .btn-store:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 30px rgba(31, 221, 255, 0.5);
-  }
+  .download p { font-size:1.2rem; max-width:700px; margin:0 auto 30px; }
+  .download-buttons { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; }
+  .btn { padding:15px 40px; font-size:1.2rem; font-weight:700; border-radius:50px; transition:0.3s; display:inline-block; margin-top:20px; text-align:center; }
+  .btn-store { background:linear-gradient(45deg,#1fddff,#00bfff); color:#111; box-shadow:0 10px 20px rgba(31,221,255,0.3); }
+  .btn-store:hover { transform:scale(1.05); box-shadow:0 15px 30px rgba(31,221,255,0.5); }
 
   /* Footer */
-  footer {
-      background: linear-gradient(135deg, #111, #1f1c2c);
-      padding: 50px;
-      color: rgba(255,255,255,0.9);
-  }
-  footer .footer-container {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-  }
-  footer .column { flex: 1 1 200px; }
-  footer h4 { color: #ff6ec7; margin-bottom: 20px; }
-  footer a { display: block; margin-bottom: 10px; color: #fff; transition: 0.3s; }
-  footer a:hover { color: #1fddff; }
-  footer p { margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+  footer { background: linear-gradient(135deg,#111,#1f1c2c); padding:50px; color:rgba(255,255,255,0.9); }
+  footer .footer-container { display:flex; justify-content:space-between; flex-wrap:wrap; gap:30px; max-width:1200px; margin:0 auto; }
+  footer .column { flex:1 1 200px; }
+  footer h4 { color:#ff6ec7; margin-bottom:20px; }
+  footer a { display:block; margin-bottom:10px; color:#fff; transition:0.3s; }
+  footer a:hover { color:#1fddff; }
+  footer p { margin-top:20px; font-size:0.9rem; color:rgba(255,255,255,0.6); }
 
-  /* Responsive */
-  @media (max-width: 768px) {
-      nav { padding: 0 20px; }
-      nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; margin-top: 10px; }
-      .hero h1 { font-size: 3.5rem; }
-      .hero p { font-size: 1.2rem; }
-      .feature-grid { grid-template-columns: 1fr; }
-      .screenshot-grid { grid-template-columns: 1fr; }
-      .download-buttons { flex-direction: column; }
-      footer .footer-container { flex-direction: column; align-items: center; text-align: center; }
+  @media(max-width:768px){
+      nav { padding:0 20px; }
+      nav ul { position:fixed; top:80px; right:-100%; width:200px; height:calc(100vh - 80px); background:rgba(0,0,0,0.95); flex-direction:column; align-items:center; gap:30px; padding-top:30px; transition:right 0.3s; }
+      nav ul.active { right:0; }
+      .hamburger { display:flex; flex-direction:column; justify-content:space-between; width:25px; height:20px; cursor:pointer; }
+      .hamburger div { width:100%; height:3px; background:#ff6ec7; border-radius:2px; }
+      .feature-grid, .screenshot-grid { grid-template-columns:1fr; }
+      .download-buttons { flex-direction:column; }
+      footer .footer-container { flex-direction:column; align-items:center; text-align:center; }
   }
 </style>
 </head>
@@ -239,12 +155,18 @@
 
 <!-- Navbar -->
 <nav>
-  <div class="logo">
+  <a href="index.html" class="logo">
       <img src="logo.png" alt="Pulse Ignite Logo">
       Pulse Ignite
+  </a>
+
+  <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
   </div>
-  <ul>
-      <li><a href="index.html">Home</a></li>
+
+  <ul id="nav-links">
       <li><a href="about.html">About</a></li>
       <li><a href="pulse.html">Pulse</a></li>
       <li><a href="events.html">Events</a></li>
@@ -316,11 +238,12 @@
       </div>
       <div class="column">
           <h4>Quick Links</h4>
-          <a href="index.html">Home</a>
           <a href="about.html">About</a>
           <a href="pulse.html">Pulse</a>
           <a href="events.html">Events</a>
           <a href="volunteer.html">Volunteer</a>
+          <a href="donate.html">Donate</a>
+          <a href="contact.html">Contact</a>
       </div>
       <div class="column">
           <h4>Contact</h4>
@@ -332,6 +255,14 @@
   </div>
   <p>© 2025 Pulse Ignite. We are a fiscally-sponsored organization.</p>
 </footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+  });
+</script>
 
 </body>
 </html>
