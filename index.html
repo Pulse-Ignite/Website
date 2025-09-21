@@ -12,7 +12,11 @@
   a { text-decoration: none; color: inherit; }
 
   /* Navbar */
-  nav { display: flex; justify-content: space-between; align-items: center; padding: 0 50px; background: rgba(0,0,0,0.5); position: fixed; width: 100%; z-index: 10; backdrop-filter: blur(10px); height: 80px; }
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 50px; background: rgba(0,0,0,0.5); position: fixed;
+    width: 100%; z-index: 10; backdrop-filter: blur(10px); height: 80px;
+  }
   nav .logo { display: flex; align-items: center; gap: 10px; font-size: 1.8rem; font-weight: 700; color: #ff6ec7; }
   nav .logo img { width: 60px; height: 60px; object-fit: contain; }
   nav ul { display: flex; gap: 25px; list-style: none; }
@@ -24,7 +28,13 @@
   .hamburger div { width: 100%; height: 3px; background-color: #ff6ec7; border-radius: 2px; }
 
   /* Hero Section */
-  .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 20px 50px; background: radial-gradient(circle at top left, #ff6ec7, #1f1c2c); position: relative; }
+  .hero {
+    height: 100vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    padding: 120px 20px 50px;
+    background: radial-gradient(circle at top left, #ff6ec7, #1f1c2c);
+    position: relative;
+  }
   .hero h1 { font-size: 5rem; font-weight: 800; margin-bottom: 20px; letter-spacing: 2px; text-shadow: 0 4px 15px rgba(0,0,0,0.5); }
   .hero p { font-size: 1.5rem; margin-bottom: 40px; max-width: 700px; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
 
@@ -32,8 +42,6 @@
   .btn { padding: 15px 40px; font-size: 1.2rem; font-weight: 700; border-radius: 50px; transition: all 0.3s ease; display: inline-block; margin-top: 20px; text-align: center; }
   .hero .btn { background: linear-gradient(45deg, #ff6ec7, #1fddff); color: #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
   .hero .btn:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
-  .pulse .btn, .research .btn { background: linear-gradient(45deg, #1fddff, #00bfff); color: #111; box-shadow: 0 10px 20px rgba(31, 221, 255, 0.3); }
-  .pulse .btn:hover, .research .btn:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(31, 221, 255, 0.5); }
 
   /* Sections */
   section { padding: 100px 50px; text-align: center; position: relative; }
@@ -83,17 +91,16 @@
 
 <!-- Navbar -->
 <nav>
-  <div class="logo">
+  <a href="index.html" class="logo">
     <img src="logo.png" alt="Pulse Ignite Logo">
     Pulse Ignite
-  </div>
+  </a>
   <div class="hamburger" id="hamburger">
     <div></div>
     <div></div>
     <div></div>
   </div>
   <ul id="nav-links">
-    <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="pulse.html">Pulse</a></li>
     <li><a href="events.html">Events</a></li>
@@ -145,11 +152,11 @@
     </div>
     <div class="column">
       <h4>Quick Links</h4>
-      <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="#pulse">Pulse</a>
       <a href="#events">Events</a>
       <a href="#volunteer">Volunteer</a>
+      <a href="donate.html">Donate</a>
     </div>
     <div class="column">
       <h4>Contact</h4>
