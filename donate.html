@@ -116,9 +116,21 @@
   /* Responsive */
   @media (max-width: 768px) {
       nav { padding: 20px 30px; }
-      nav ul { position: fixed; top: 80px; right: -100%; width: 200px; height: calc(100vh - 80px); background: rgba(0,0,0,0.95); flex-direction: column; align-items: center; gap: 30px; padding-top: 30px; transition: right 0.3s ease-in-out; }
+      nav ul {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        width: 200px;
+        height: calc(100vh - 80px);
+        background: rgba(0,0,0,0.95);
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding-top: 30px;
+        transition: right 0.3s ease-in-out;
+      }
       nav ul.active { right: 0; }
-      .hamburger { display: flex; flex-direction: column; justify-content: space-between; width: 25px; height: 20px; cursor: pointer; }
+      .hamburger { display: flex; }
       nav ul li a { line-height: normal; font-size: 1.2rem; }
       .donate-buttons { flex-direction: column; gap: 20px; }
   }
@@ -132,6 +144,13 @@
     <img src="logo.png" alt="Pulse Ignite Logo">
     Pulse Ignite
   </a>
+
+  <div class="hamburger" id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
   <ul class="nav-links" id="nav-links">
     <li><a href="about.html">About</a></li>
     <li><a href="pulse.html">Pulse</a></li>
