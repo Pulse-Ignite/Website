@@ -30,6 +30,10 @@
   nav ul li a { cursor: pointer; font-weight: 500; transition: 0.3s; display: block; line-height: 80px; }
   nav ul li a:hover { color: #1fddff; }
 
+  /* Hamburger */
+  .hamburger { display: none; flex-direction: column; justify-content: space-between; width: 25px; height: 20px; cursor: pointer; }
+  .hamburger div { width: 100%; height: 3px; background-color: #ff6ec7; border-radius: 2px; }
+
   /* Hero Section */
   .hero {
       height: 40vh;
@@ -50,11 +54,7 @@
       padding: 100px 50px;
       text-align: center;
   }
-  h2 {
-      font-size: 2.8rem;
-      margin-bottom: 40px;
-      color: #ff6ec7;
-  }
+  h2 { font-size: 2.8rem; margin-bottom: 40px; color: #ff6ec7; }
   .contact-info {
       max-width: 700px;
       margin: 0 auto;
@@ -66,11 +66,7 @@
       padding: 40px;
       border-radius: 20px;
     }
-  .contact-item {
-      font-size: 1.2rem;
-      color: #1fddff;
-      transition: 0.3s;
-  }
+  .contact-item { font-size: 1.2rem; color: #1fddff; transition: 0.3s; }
   .contact-item:hover { color: #ff6ec7; }
 
   .social-links {
@@ -79,11 +75,7 @@
       gap: 30px;
       margin-top: 20px;
   }
-  .social-links a {
-      font-size: 1.5rem;
-      color: #fff;
-      transition: 0.3s;
-  }
+  .social-links a { font-size: 1.5rem; color: #fff; transition: 0.3s; }
   .social-links a:hover { color: #1fddff; }
 
   /* Footer */
@@ -109,7 +101,10 @@
   /* Responsive */
   @media (max-width: 768px) {
       nav { padding: 0 30px; }
-      nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; margin-top: 10px; }
+      nav ul { position: fixed; top: 80px; right: -100%; width: 200px; height: calc(100vh - 80px); background: rgba(0,0,0,0.95); flex-direction: column; align-items: center; gap: 30px; padding-top: 30px; transition: right 0.3s ease-in-out; }
+      nav ul.active { right: 0; }
+      .hamburger { display: flex; flex-direction: column; justify-content: space-between; width: 25px; height: 20px; cursor: pointer; }
+      nav ul li a { line-height: normal; font-size: 1.2rem; }
       .hero h1 { font-size: 2.5rem; }
       .hero p { font-size: 1rem; }
       .contact-info { padding: 25px; }
@@ -119,61 +114,75 @@
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav>
-    <a href="index.html" class="logo">
-      <img src="logo.png" alt="Pulse Ignite Logo">
-      Pulse Ignite
-    </a>
-    <ul>
-      <li><a href="about.html">About</a></li>
-      <li><a href="pulse.html">Pulse</a></li>
-      <li><a href="events.html">Events</a></li>
-      <li><a href="volunteer.html">Volunteer</a></li>
-      <li><a href="donate.html">Donate</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+<!-- Navbar -->
+<nav>
+  <a href="index.html" class="logo">
+    <img src="logo.png" alt="Pulse Ignite Logo">
+    Pulse Ignite
+  </a>
 
-  <!-- Hero -->
-  <div class="hero">
-    <h1>Contact Us</h1>
-    <p>We’d love to hear from you! Reach out via email or follow us on social media.</p>
+  <div class="hamburger" id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
 
-  <!-- Contact Info Section -->
-  <section>
-    <h2>Get in Touch</h2>
-    <div class="contact-info">
-      <div class="contact-item">📧 Email: <a href="mailto:info@pulseignite.org">info@pulseignite.org</a></div>
-      </div>
-    </div>
-  </section>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="pulse.html">Pulse</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="volunteer.html">Volunteer</a></li>
+    <li><a href="donate.html">Donate</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="column">
-        <h4>Pulse Ignite</h4>
-        <p>Empowering youth and communities in health, education, and research.</p>
-      </div>
-      <div class="column">
-        <h4>Quick Links</h4>
-        <a href="about.html">About</a>
-        <a href="index.html#pulse">Pulse</a>
-        <a href="index.html#events">Events</a>
-        <a href="index.html#volunteer">Volunteer</a>
-      </div>
-      <div class="column">
-        <h4>Contact</h4>
-        <a href="mailto:info@pulseignite.org">info@pulseignite.org</a>
-        <a href="#">Twitter</a>
-        <a href="#">Instagram</a>
-        <a href="https://www.linkedin.com/company/pulseignite">LinkedIn</a>
-      </div>
-    </div>
-    <p>© 2025 Pulse Ignite. We are a fiscally-sponsored organization.</p>
-  </footer>
+<!-- Hero -->
+<div class="hero">
+  <h1>Contact Us</h1>
+  <p>We’d love to hear from you! Reach out via email or follow us on social media.</p>
+</div>
 
-</body>
-</html>
+<!-- Contact Info Section -->
+<section>
+  <h2>Get in Touch</h2>
+  <div class="contact-info">
+    <div class="contact-item">📧 Email: <a href="mailto:info@pulseignite.org">info@pulseignite.org</a></div>
+    <div class="social-links">
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+      <a href="https://www.linkedin.com/company/pulseignite">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-container">
+    <div class="column">
+      <h4>Pulse Ignite</h4>
+      <p>Empowering youth and communities in health, education, and research.</p>
+    </div>
+    <div class="column">
+      <h4>Quick Links</h4>
+      <a href="about.html">About</a>
+      <a href="pulse.html">Pulse</a>
+      <a href="events.html">Events</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="donate.html">Donate</a>
+    </div>
+    <div class="column">
+      <h4>Contact</h4>
+      <a href="mailto:info@pulseignite.org">info@pulseignite.org</a>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+      <a href="https://www.linkedin.com/company/pulseignite">LinkedIn</a>
+    </div>
+  </div>
+  <p>© 2025 Pulse Ignite. We are a fiscally-sponsored organization.</p>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger
