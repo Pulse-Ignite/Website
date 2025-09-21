@@ -7,90 +7,101 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="logo.png">
   <style>
-   /* Base reset */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #fff; background: #111; }
-a { text-decoration: none; color: inherit; }
+    /* Base reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #fff; background: #111; }
+    a { text-decoration: none; color: inherit; }
 
-/* Navbar */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 50px;
-  background: rgba(0,0,0,0.5);
-  position: fixed;
-  width: 100%;
-  z-index: 10;
-  backdrop-filter: blur(10px);
-  height: 80px;
-}
-nav .logo { display: flex; align-items: center; gap: 10px; font-size: 1.8rem; font-weight: 700; color: #ff6ec7; }
-nav .logo img { width: 60px; height: 60px; object-fit: contain; }
-nav ul { display: flex; gap: 25px; list-style: none; }
-nav ul li a { cursor: pointer; font-weight: 500; transition: 0.3s; display: block; line-height: 80px; }
-nav ul li a:hover { color: #1fddff; }
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 50px;
+      background: rgba(0,0,0,0.5);
+      position: fixed;
+      width: 100%;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      height: 80px;
+    }
+    nav .logo { display: flex; align-items: center; gap: 10px; font-size: 1.8rem; font-weight: 700; color: #ff6ec7; }
+    nav .logo img { width: 50px; height: 50px; object-fit: contain; }
+    nav ul { display: flex; gap: 20px; list-style: none; }
+    nav ul li a { cursor: pointer; font-weight: 500; transition: 0.3s; display: block; line-height: 80px; }
+    nav ul li a:hover { color: #1fddff; }
 
-/* Hero Section */
-.hero {
-  height: 60vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 120px 20px 50px;
-  background: radial-gradient(circle at top left, #ff6ec7, #1f1c2c);
-  position: relative;
-}
-.hero h1 { font-size: 4rem; font-weight: 800; margin-bottom: 20px; letter-spacing: 2px; text-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-.hero p { font-size: 1.3rem; max-width: 700px; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
+    /* Hero Section */
+    .hero {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 20px 50px;
+      background: radial-gradient(circle at top left, #ff6ec7, #1f1c2c);
+    }
+    .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; letter-spacing: 2px; text-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+    .hero p { font-size: 1.2rem; max-width: 700px; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
 
-/* Sections */
-section { padding: 100px 50px; text-align: center; position: relative; }
-h2 { font-size: 2.8rem; margin-bottom: 40px; color: #ff6ec7; }
-p { max-width: 800px; margin: 0 auto 20px; font-size: 1.2rem; color: #fff; }
+    /* Sections */
+    section { padding: 80px 50px; text-align: center; position: relative; }
+    h2 { font-size: 2.5rem; margin-bottom: 30px; color: #ff6ec7; }
+    p { max-width: 800px; margin: 0 auto 20px; font-size: 1.1rem; color: #fff; }
 
-/* Mission & Impact Cards */
-.mission-cards { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 40px; }
-.mission-cards .card {
-  background: rgba(0,0,0,0.6); /* darker background */
-  backdrop-filter: blur(10px);
-  padding: 30px;
-  border-radius: 20px;
-  width: 300px;
-  transition: 0.3s;
-}
-.mission-cards .card:hover { 
-  transform: translateY(-10px); 
-  box-shadow: 0 15px 30px rgba(0,0,0,0.7);
-}
-.card h3 { margin-bottom: 15px; color: #1fddff; }
-.card p { font-size: 1rem; color: #fff; }
+    /* Mission & Impact Cards */
+    .mission-cards { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; }
+    .mission-cards .card {
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      padding: 25px;
+      border-radius: 20px;
+      width: 280px;
+      transition: 0.3s;
+    }
+    .mission-cards .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.7); }
+    .card h3 { margin-bottom: 15px; color: #1fddff; font-size: 1.4rem; }
+    .card p { font-size: 1rem; color: #fff; }
 
-/* Footer */
-footer {
-  background: linear-gradient(135deg, #111, #1f1c2c);
-  padding: 50px;
-  color: rgba(255,255,255,0.9);
-}
-footer .footer-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; max-width: 1200px; margin: 0 auto; }
-footer .column { flex: 1 1 200px; }
-footer h4 { color: #ff6ec7; margin-bottom: 20px; }
-footer a { display: block; margin-bottom: 10px; color: #fff; transition: 0.3s; }
-footer a:hover { color: #1fddff; }
-footer p { margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #111, #1f1c2c);
+      padding: 50px 20px;
+      color: rgba(255,255,255,0.9);
+    }
+    footer .footer-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; max-width: 1200px; margin: 0 auto; }
+    footer .column { flex: 1 1 200px; }
+    footer h4 { color: #ff6ec7; margin-bottom: 20px; font-size: 1.2rem; }
+    footer a { display: block; margin-bottom: 10px; color: #fff; transition: 0.3s; font-size: 0.95rem; }
+    footer a:hover { color: #1fddff; }
+    footer p { margin-top: 20px; font-size: 0.85rem; color: rgba(255,255,255,0.6); }
 
-/* Responsive */
-@media (max-width: 768px) {
-  nav { padding: 0 30px; }
-  nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; margin-top: 10px; }
-  .hero h1 { font-size: 3rem; }
-  .hero p { font-size: 1.1rem; }
-  .mission-cards { flex-direction: column; align-items: center; gap: 30px; }
-  footer .footer-container { flex-direction: column; align-items: center; text-align: center; }
-}
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero h1 { font-size: 3rem; }
+      .hero p { font-size: 1.1rem; }
+      h2 { font-size: 2.2rem; }
+    }
 
+    @media (max-width: 768px) {
+      nav { padding: 10px 30px; }
+      nav ul { gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 5px; }
+      nav ul li a { line-height: 60px; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; max-width: 90%; }
+      section { padding: 60px 20px; }
+      .mission-cards { flex-direction: column; align-items: center; gap: 25px; }
+      .mission-cards .card { width: 90%; padding: 20px; }
+      h2 { font-size: 2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero p { font-size: 0.95rem; }
+      h2 { font-size: 1.6rem; }
+      p { font-size: 0.95rem; }
+    }
   </style>
 </head>
 <body>
@@ -115,7 +126,7 @@ footer p { margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
   <!-- Hero -->
   <div class="hero">
     <h1>About Pulse Ignite</h1>
-    <p>Pulse Ignite is a organization dedicated to empowering youth and communities in health, education, and research. Learn, track, and make an impact.</p>
+    <p>Pulse Ignite is an organization dedicated to empowering youth and communities in health, education, and research. Learn, track, and make an impact.</p>
   </div>
 
   <!-- Mission / Vision / What We Do -->
@@ -136,24 +147,25 @@ footer p { margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
       </div>
     </div>
   </section>
-    <!-- Impact Section -->
-<section style="background: linear-gradient(135deg, #1fddff, #ff6ec7); color: #111;">
-  <h2>Why We Exist</h2>
-  <div class="mission-cards">
-    <div class="card">
-      <h3>Health Awareness</h3>
-      <p>Many young people lack access to reliable health information. We provide clear, actionable knowledge to empower wellness.</p>
+
+  <!-- Impact Section -->
+  <section style="background: linear-gradient(135deg, #1fddff, #ff6ec7); color: #111;">
+    <h2>Why We Exist</h2>
+    <div class="mission-cards">
+      <div class="card">
+        <h3>Health Awareness</h3>
+        <p>Many young people lack access to reliable health information. We provide clear, actionable knowledge to empower wellness.</p>
+      </div>
+      <div class="card">
+        <h3>Research Accessibility</h3>
+        <p>Scientific research can be intimidating. We make it approachable, so students and researchers can explore and learn.</p>
+      </div>
+      <div class="card">
+        <h3>Community Engagement</h3>
+        <p>Connecting learners, volunteers, and professionals creates a collaborative environment for real impact.</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Research Accessibility</h3>
-      <p>Scientific research can be intimidating. We make it approachable, so students and researchers can explore and learn.</p>
-    </div>
-    <div class="card">
-      <h3>Community Engagement</h3>
-      <p>Connecting learners, volunteers, and professionals creates a collaborative environment for real impact.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- Footer -->
   <footer>
