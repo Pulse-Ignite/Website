@@ -13,37 +13,28 @@
 
   /* Navbar */
   nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      background: rgba(0,0,0,0.5);
-      position: fixed;
-      width: 100%;
-      z-index: 10;
-      backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    backdrop-filter: blur(10px);
   }
   nav .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #ff6ec7;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ff6ec7;
   }
   nav .logo img { width: 60px; height: 60px; object-fit: contain; }
-  nav ul { display: flex; gap: 25px; list-style: none; align-items: center; }
+  nav ul { display: flex; gap: 25px; list-style: none; }
   nav ul li a { font-weight: 500; line-height: 60px; transition: 0.3s; display: block; }
   nav ul li a:hover { color: #1fddff; }
-  nav ul li a.donate-btn {
-      background: linear-gradient(45deg, #ff6ec7, #1fddff);
-      color: #111;
-      padding: 10px 25px;
-      border-radius: 50px;
-      font-weight: 700;
-      transition: all 0.3s ease;
-  }
-  nav ul li a.donate-btn:hover { transform: scale(1.05); }
 
   /* Hamburger */
   .hamburger { display: none; flex-direction: column; justify-content: space-between; width: 25px; height: 20px; cursor: pointer; }
@@ -51,84 +42,71 @@
 
   /* Hero Section */
   .hero {
-      height: 50vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 100px 20px 50px;
-      background: radial-gradient(circle at top left, #ff6ec7, #1f1c2c);
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px 50px;
+    background: radial-gradient(circle at top left, #ff6ec7, #1f1c2c);
   }
   .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 15px; text-shadow: 0 4px 15px rgba(0,0,0,0.5); }
   .hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 30px; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
+  .hero a.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #ff6ec7, #1fddff);
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+  }
+  .hero a.btn:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
 
-  /* Buttons */
-  a.btn {
-      display: inline-block;
-      margin: 0 auto;
-      padding: 15px 40px;
-      font-size: 1.2rem;
-      font-weight: 700;
-      border-radius: 50px;
-      background: linear-gradient(45deg, #ff6ec7, #1fddff);
-      color: #fff;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-      transition: all 0.3s ease;
-      text-align: center;
+  /* Donation Section */
+  .donate-section {
+    padding: 100px 20px;
+    text-align: center;
   }
-  a.btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+  .donate-section h2 { font-size: 2.8rem; margin-bottom: 20px; color: #ff6ec7; }
+  .donate-section p { max-width: 700px; margin: 0 auto 40px; font-size: 1.2rem; color: rgba(255,255,255,0.9); }
+  .donate-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
+  .donate-buttons button {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
   }
+  .donate-buttons button:hover { transform: scale(1.05); background: rgba(255,255,255,0.2); }
 
-  /* Sections */
-  section { padding: 100px 50px; text-align: center; }
-  h2 { font-size: 2.8rem; margin-bottom: 20px; color: #ff6ec7; }
-  p.section-intro { max-width: 700px; margin: 0 auto 40px; font-size: 1.2rem; }
+  .donate-buttons .high { background: linear-gradient(45deg, #1fddff, #ff6ec7); color: #111; font-size: 1.3rem; }
 
-  /* Donation Cards */
-  .donation-cards {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin-top: 40px;
-  }
-  .donation-card {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(10px);
-      padding: 40px 30px;
-      border-radius: 20px;
-      width: 180px;
-      transition: 0.3s;
-      cursor: pointer;
-      text-align: center;
-  }
-  .donation-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-  }
-  .donation-card h3 { font-size: 2rem; margin-bottom: 10px; color: #1fddff; }
-  .donation-card p { font-size: 1rem; color: rgba(255,255,255,0.8); }
-  .donation-card.featured { width: 200px; background: linear-gradient(135deg, #ff6ec7, #1fddff); color: #111; }
+  .sponsor-note { margin-top: 20px; font-size: 1rem; color: rgba(255,255,255,0.7); }
 
-  /* Sponsor Note */
-  .sponsor-note { margin-top: 60px; font-size: 1rem; color: rgba(255,255,255,0.7); max-width: 600px; margin-left: auto; margin-right: auto; }
+  .tax-note { margin-top: 10px; font-size: 0.95rem; color: rgba(255,255,255,0.6); }
 
   /* Footer */
   footer {
-      background: linear-gradient(135deg, #111, #1f1c2c);
-      padding: 50px;
-      color: rgba(255,255,255,0.9);
+    background: linear-gradient(135deg, #111, #1f1c2c);
+    padding: 50px;
+    color: rgba(255,255,255,0.9);
   }
   footer .footer-container {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
   footer .column { flex: 1 1 200px; }
   footer h4 { color: #ff6ec7; margin-bottom: 20px; }
@@ -143,10 +121,7 @@
       nav ul.active { right: 0; }
       .hamburger { display: flex; flex-direction: column; justify-content: space-between; width: 25px; height: 20px; cursor: pointer; }
       nav ul li a { line-height: normal; font-size: 1.2rem; }
-      .hero h1 { font-size: 2.5rem; }
-      .hero p { font-size: 1rem; }
-      .donation-cards { flex-direction: column; align-items: center; gap: 30px; }
-      footer .footer-container { flex-direction: column; align-items: center; text-align: center; }
+      .donate-buttons { flex-direction: column; gap: 20px; }
   }
 </style>
 </head>
@@ -158,19 +133,12 @@
     <img src="logo.png" alt="Pulse Ignite Logo">
     Pulse Ignite
   </a>
-
-  <div class="hamburger" id="hamburger">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-
   <ul class="nav-links" id="nav-links">
     <li><a href="about.html">About</a></li>
     <li><a href="pulse.html">Pulse</a></li>
     <li><a href="events.html">Events</a></li>
     <li><a href="volunteer.html">Volunteer</a></li>
-    <li><a href="donate.html" class="donate-btn">Donate</a></li>
+    <li><a href="donate.html">Donate</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
@@ -178,36 +146,21 @@
 <!-- Hero -->
 <div class="hero">
   <h1>Support Pulse Ignite</h1>
-  <p>Your donations help us empower youth and communities through health, education, and research programs.</p>
-  <a href="#donate-options" class="btn">Donate Now</a>
+  <p>Your contribution helps us empower youth and communities in health, education, and research.</p>
+  <a href="#donate" class="btn">Donate Now</a>
 </div>
 
-<!-- Donation Options -->
-<section id="donate-options">
+<!-- Donation Section -->
+<section class="donate-section" id="donate">
   <h2>Choose Your Donation</h2>
-  <p class="section-intro">Every contribution makes a difference. Pick a donation amount or enter a custom value.</p>
-  <div class="donation-cards">
-    <div class="donation-card featured">
-      <h3>$100</h3>
-      <p>Help expand our research database and tools for students.</p>
-    </div>
-    <div class="donation-card">
-      <h3>$50</h3>
-      <p>Support community health events and workshops.</p>
-    </div>
-    <div class="donation-card">
-      <h3>$25</h3>
-      <p>Help fund educational materials and basic resources.</p>
-    </div>
-    <div class="donation-card">
-      <h3>Custom</h3>
-      <p>Contribute any amount to support our mission.</p>
-    </div>
+  <p>Select an amount below. Every contribution makes a difference. Sponsors can <strong>contact our team</strong> for partnership opportunities.</p>
+  <div class="donate-buttons">
+    <button>$25</button>
+    <button>$50</button>
+    <button class="high">$100</button>
+    <button>Custom</button>
   </div>
-
-  <p class="sponsor-note">
-    Are you a potential sponsor or organization interested in supporting Pulse Ignite? Please <a href="mailto:info@pulseignite.org" style="color:#1fddff;">contact our team</a> to discuss partnership opportunities.
-  </p>
+  <div class="tax-note">Pulse Ignite is a 501(c)(3) nonprofit organization. Donations are tax-deductible to the extent allowed by law.</div>
 </section>
 
 <!-- Footer -->
