@@ -1,149 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pulse Ignite</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    /* Reset & base */
-    * {margin:0; padding:0; box-sizing:border-box;}
-    body {font-family: 'Inter', sans-serif; line-height:1.6; color:#333;}
-    a {text-decoration:none; color: inherit;}
-    button {cursor:pointer; border:none; border-radius:5px;}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pulse Ignite</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* --- Base & Reset --- */
+  * {margin:0; padding:0; box-sizing:border-box;}
+  html {scroll-behavior: smooth;}
+  body {font-family: 'Poppins', sans-serif; color:#E0E0E0; background:#0F111A; line-height:1.6;}
 
-    /* Colors */
-    :root {
-      --primary: #2C7A7B; /* teal */
-      --secondary: #EDFDFD; /* light bg */
-      --accent: #319795; /* darker teal */
-    }
+  a {text-decoration:none; color:inherit;}
+  button {cursor:pointer; border:none; border-radius:8px; font-weight:600;}
 
-    /* Layout */
-    header {
-      background: var(--primary);
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header nav a {
-      margin-left: 1.5rem;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-    header nav a:hover {color: var(--accent);}
-    .btn {background: var(--accent); color:white; padding:0.5rem 1rem; font-weight:600; transition: 0.2s;}
-    .btn:hover {background: #2C7A7B;}
+  /* --- Colors --- */
+  :root {
+    --primary: #14B8A6;
+    --secondary: #84F1ED;
+    --bg-dark: #0F111A;
+    --text-light: #E0E0E0;
+  }
 
-    section {padding:4rem 2rem;}
-    .container {max-width:1100px; margin:0 auto;}
+  /* --- Header --- */
+  header {
+    position: fixed; width:100%; top:0; left:0; z-index:1000;
+    background: rgba(15,17,26,0.85); backdrop-filter: blur(10px);
+    display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem;
+  }
+  header .logo {font-size:1.6rem; font-weight:700; color:var(--primary);}
+  nav a {margin-left:2rem; font-weight:500; transition:0.2s;}
+  nav a:hover {color:var(--secondary);}
 
-    /* Hero */
-    .hero {
-      background: linear-gradient(rgba(44,122,123,0.8), rgba(44,122,123,0.8)), url('https://images.unsplash.com/photo-1588776814546-bb4400e60d2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8aGVhbHRofHx8fHx8MTY5ODk3NzU0OA&ixlib=rb-4.0.3&q=80&w=1080') center/cover no-repeat;
-      color:white;
-      text-align:center;
-      padding:6rem 2rem;
-      border-radius: 0 0 50% 50% / 0 0 5% 5%;
-    }
-    .hero h1 {font-size:2.8rem; margin-bottom:1rem;}
-    .hero p {font-size:1.2rem; margin-bottom:2rem;}
-    
-    /* About */
-    .cards {display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:2rem;}
-    .card {background:#f7fdfd; padding:2rem; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.05); transition: transform 0.2s;}
-    .card:hover {transform: translateY(-5px);}
-    .card h3 {margin-bottom:0.5rem; color:var(--primary);}
+  /* --- Hero --- */
+  .hero {
+    min-height:100vh;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    text-align:center;
+    background: linear-gradient(to bottom, rgba(15,17,26,0.9), rgba(15,17,26,0.9)),
+                url('https://images.unsplash.com/photo-1588776814546-bb4400e60d2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8aGVhbHRofHx8fHx8MTY5ODk3NzU0OA&ixlib=rb-4.0.3&q=80&w=1080') center/cover no-repeat;
+    color:white;
+    padding:0 2rem;
+  }
+  .hero h1 {font-size:3rem; font-weight:700; margin-bottom:1rem; background: linear-gradient(90deg,var(--primary),var(--secondary)); -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
+  .hero p {font-size:1.2rem; margin-bottom:2rem; max-width:600px;}
+  .hero .btn {background:linear-gradient(90deg,var(--primary),var(--secondary)); color:#0F111A; padding:0.8rem 2rem; font-size:1rem; transition:0.3s;}
+  .hero .btn:hover {transform:scale(1.05);}
 
-    /* Footer */
-    footer {background:#2C7A7B; color:white; text-align:center; padding:2rem;}
-    footer a {color:white; margin:0 0.5rem;}
-    
-    /* Responsive */
-    @media(max-width:768px){
-      header {flex-direction:column; gap:1rem;}
-      .hero h1 {font-size:2rem;}
-    }
-  </style>
+  /* --- Sections --- */
+  section {padding:6rem 2rem;}
+  .container {max-width:1200px; margin:0 auto;}
+
+  /* --- Cards (Programs) --- */
+  .cards {display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem;}
+  .card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    padding:2rem; border-radius:16px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .card:hover {transform:translateY(-10px); box-shadow:0 10px 30px rgba(20,184,166,0.3);}
+  .card h3 {color:var(--primary); margin-bottom:0.5rem; font-size:1.3rem;}
+  .card p {color:#ccc;}
+
+  /* --- Impact Section --- */
+  .impact {display:flex; justify-content:space-around; flex-wrap:wrap; gap:2rem; text-align:center;}
+  .impact div {flex:1 1 150px; background: rgba(255,255,255,0.05); padding:2rem; border-radius:16px; backdrop-filter: blur(10px);}
+  .impact div h2 {font-size:2rem; color:var(--primary); margin-bottom:0.5rem;}
+  .impact div p {color:#ccc;}
+
+  /* --- Get Involved --- */
+  #volunteer form {display:flex; flex-direction:column; gap:1rem; max-width:500px; margin:auto;}
+  #volunteer input, #volunteer textarea {
+    padding:0.8rem; border-radius:10px; border:none; background: rgba(255,255,255,0.1); color:#fff;
+    transition:0.3s;
+  }
+  #volunteer input:focus, #volunteer textarea:focus {background: rgba(255,255,255,0.2); outline:none;}
+  #volunteer button {background: linear-gradient(90deg,var(--primary),var(--secondary)); color:#0F111A; padding:0.8rem; transition:0.3s;}
+  #volunteer button:hover {transform:scale(1.05);}
+
+  /* --- Footer --- */
+  footer {background:#0F111A; text-align:center; padding:3rem 2rem; color:#aaa;}
+  footer a {margin:0 0.5rem; color:#aaa; transition:0.2s;}
+  footer a:hover {color:var(--secondary);}
+
+  /* --- Scroll Animations --- */
+  [data-animate] {opacity:0; transform:translateY(30px); transition:all 0.8s ease-out;}
+  [data-animate].visible {opacity:1; transform:translateY(0);}
+  
+  /* --- Responsive --- */
+  @media(max-width:768px){.hero h1 {font-size:2rem;}}
+</style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="logo"><h2>Pulse Ignite</h2></div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#programs">Programs</a>
-      <a href="#volunteer">Get Involved</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Empowering Health, One Step at a Time</h1>
-    <p>Pulse Ignite provides accessible healthcare resources and community programs to make health simple and approachable.</p>
-    <a href="#volunteer" class="btn">Get Involved</a>
-  </section>
+<!-- Header -->
+<header>
+  <div class="logo">Pulse Ignite</div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#programs">Programs</a>
+    <a href="#volunteer">Get Involved</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <!-- About -->
-  <section id="about">
-    <div class="container">
-      <h2>About Pulse Ignite</h2>
-      <p>We aim to bridge the gap between healthcare resources and communities, offering programs, guidance, and support to ensure everyone can access essential health information.</p>
-    </div>
-  </section>
+<!-- Hero -->
+<section class="hero">
+  <h1>Healthcare, Simplified</h1>
+  <p>Pulse Ignite provides modern, accessible healthcare resources and programs to empower communities everywhere.</p>
+  <a href="#volunteer" class="btn">Join the Movement</a>
+</section>
 
-  <!-- Programs -->
-  <section id="programs">
-    <div class="container">
-      <h2>Our Programs</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Community Workshops</h3>
-          <p>Interactive health sessions for students, families, and communities to learn about wellness and prevention.</p>
-        </div>
-        <div class="card">
-          <h3>Telehealth Guidance</h3>
-          <p>Providing digital health resources and guidance to connect you with healthcare professionals remotely.</p>
-        </div>
-        <div class="card">
-          <h3>Awareness Campaigns</h3>
-          <p>Running campaigns to raise awareness on preventive health, nutrition, and mental well-being.</p>
-        </div>
+<!-- About -->
+<section id="about" data-animate>
+  <div class="container">
+    <h2>About Pulse Ignite</h2>
+    <p>We bridge the gap between health resources and communities, delivering actionable programs, telehealth guidance, and awareness campaigns to improve lives.</p>
+  </div>
+</section>
+
+<!-- Programs -->
+<section id="programs" data-animate>
+  <div class="container">
+    <h2>Our Programs</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Community Workshops</h3>
+        <p>Interactive sessions on wellness, preventive care, and healthy living for students, families, and local communities.</p>
+      </div>
+      <div class="card">
+        <h3>Telehealth Guidance</h3>
+        <p>Remote healthcare resources and guidance to connect you with professionals digitally, wherever you are.</p>
+      </div>
+      <div class="card">
+        <h3>Awareness Campaigns</h3>
+        <p>Programs that inform and empower communities on preventive health, nutrition, and mental wellness.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Get Involved -->
-  <section id="volunteer" style="background:#edfdfd;">
-    <div class="container">
-      <h2>Get Involved</h2>
-      <p>Join our mission by volunteering, donating, or spreading the word. Every effort counts!</p>
-      <a href="#contact" class="btn">Sign Up</a>
-    </div>
-  </section>
+<!-- Impact -->
+<section class="impact" data-animate>
+  <div><h2>100+</h2><p>Workshops Hosted</p></div>
+  <div><h2>500+</h2><p>Volunteers Engaged</p></div>
+  <div><h2>10k+</h2><p>Community Members Reached</p></div>
+</section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container">
-      <h2>Contact Us</h2>
-      <form style="display:flex; flex-direction:column; gap:1rem; max-width:500px;">
-        <input type="text" placeholder="Your Name" required style="padding:0.5rem; border-radius:5px; border:1px solid #ccc;">
-        <input type="email" placeholder="Email" required style="padding:0.5rem; border-radius:5px; border:1px solid #ccc;">
-        <textarea placeholder="Message" rows="5" style="padding:0.5rem; border-radius:5px; border:1px solid #ccc;"></textarea>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
-    </div>
-  </section>
+<!-- Get Involved -->
+<section id="volunteer" data-animate>
+  <div class="container">
+    <h2>Get Involved</h2>
+    <p>Volunteer, donate, or spread awareness — every effort makes a difference.</p>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" rows="5"></textarea>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 Pulse Ignite. All rights reserved.</p>
-    <div>
-      <a href="#">Instagram</a> | <a href="#">Twitter</a> | <a href="#">LinkedIn</a>
-    </div>
-  </footer>
+<!-- Contact -->
+<section id="contact" data-animate>
+  <div class="container">
+    <h2>Contact Us</h2>
+    <p>Email: info@pulseignite.org</p>
+    <p>Follow us on social media for updates.</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2026 Pulse Ignite. All rights reserved.</p>
+  <div>
+    <a href="#">Instagram</a> | <a href="#">Twitter</a> | <a href="#">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll animations
+  const animateEls = document.querySelectorAll('[data-animate]');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {threshold:0.2});
+  animateEls.forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
