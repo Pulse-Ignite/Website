@@ -6,21 +6,20 @@
 <title>Pulse Ignite</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* Reset & Base */
+/* Base Reset */
 * {margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif;}
-body {background:linear-gradient(160deg,#f2f6ff,#e8f0fb); color:#1D2D50; line-height:1.5; overflow-x:hidden;}
+body {background: linear-gradient(160deg,#f2f6ff,#e8f0fb); color:#1D2D50; line-height:1.5;}
 a {text-decoration:none; color:inherit; transition:0.3s;}
 
-/* Glass Header */
+/* Header */
 header {
   position:fixed; top:0; left:0; width:100%;
   backdrop-filter:blur(14px) saturate(180%);
-  background:rgba(255,255,255,0.6);
-  box-shadow:0 8px 30px rgba(0,0,0,0.08);
+  background:rgba(255,255,255,0.65);
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
   padding:1rem 3rem;
   display:flex; justify-content:space-between; align-items:center;
-  z-index:1000;
-  border-radius:0 0 24px 24px;
+  border-radius:0 0 20px 20px; z-index:1000;
 }
 header h1 {font-weight:800; font-size:1.7rem; color:#1D2D50;}
 header nav a {margin-left:2rem; font-weight:500; text-transform:uppercase; color:#1D2D50;}
@@ -28,10 +27,10 @@ header nav a:hover {color:#2EC4B6;}
 
 /* Hero */
 #hero {min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; padding-top:6rem;}
-#hero h1 {font-size:3.8rem; font-weight:800; margin-bottom:1rem; max-width:900px; text-align:center;}
+#hero h1 {font-size:3.5rem; font-weight:800; margin-bottom:1rem; max-width:900px; text-align:center;}
 #hero p {font-size:1.3rem; color:#4A6073; max-width:650px; margin-bottom:3rem; text-align:center;}
 .hero-buttons {display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center;}
-.btn {padding:1rem 2.2rem; font-weight:600; text-transform:uppercase; border:none; cursor:pointer; border-radius:16px; transition:0.3s; box-shadow:0 12px 25px rgba(0,0,0,0.08);}
+.btn {padding:1rem 2.2rem; font-weight:600; text-transform:uppercase; border:none; cursor:pointer; border-radius:16px; transition:0.3s; box-shadow:0 10px 25px rgba(0,0,0,0.08);}
 .btn-primary {background:#2EC4B6; color:#fff;}
 .btn-primary:hover {background:#1FAAA1;}
 .btn-secondary {background:#fff; color:#2EC4B6; border:2px solid #2EC4B6;}
@@ -39,28 +38,28 @@ header nav a:hover {color:#2EC4B6;}
 
 /* Pop-Up Events */
 #events {display:flex; flex-direction:column; align-items:center; gap:4rem; padding-bottom:4rem;}
-#events h2 {font-size:3.2rem; font-weight:800; color:#1D2D50;}
+#events h2 {font-size:3rem; font-weight:800; color:#1D2D50;}
 .events-grid {display:grid; grid-template-columns:1fr; gap:2.5rem; max-width:1200px; width:100%;}
 .event-card {
-  padding:2.8rem; border-radius:24px; 
-  background:rgba(255,255,255,0.7); backdrop-filter:blur(12px) saturate(180%);
-  box-shadow:0 20px 40px rgba(0,0,0,0.08);
-  transition:transform 0.35s, box-shadow 0.35s;
+  padding:2.5rem; border-radius:20px;
+  background:rgba(255,255,255,0.75); backdrop-filter:blur(10px) saturate(180%);
+  box-shadow:0 15px 30px rgba(0,0,0,0.05);
+  transition:transform 0.3s, box-shadow 0.3s;
 }
-.event-card:hover {transform:translateY(-12px); box-shadow:0 25px 50px rgba(0,0,0,0.12);}
-.event-card h3 {font-size:1.7rem; margin-bottom:0.5rem; color:#1D2D50;}
+.event-card:hover {transform:translateY(-8px); box-shadow:0 20px 40px rgba(0,0,0,0.08);}
+.event-card h3 {font-size:1.6rem; margin-bottom:0.5rem; color:#1D2D50;}
 .event-card p {margin-bottom:0.5rem; color:#4A6073;}
-.event-card a {margin-top:1.2rem; display:inline-block; font-weight:600; color:#2EC4B6;}
+.event-card a {margin-top:1rem; display:inline-block; font-weight:600; color:#2EC4B6;}
 .event-card a:hover {text-decoration:underline;}
 
 /* Telehealth */
 #telehealth {display:flex; flex-direction:column; align-items:center; gap:3rem; margin-top:6rem;}
 #telehealth .content {max-width:500px;}
-#telehealth img {width:100%; max-width:480px; border-radius:24px; object-fit:cover; box-shadow:0 15px 35px rgba(0,0,0,0.08);}
+#telehealth img {width:100%; max-width:480px; border-radius:20px; object-fit:cover; box-shadow:0 15px 35px rgba(0,0,0,0.08);}
 
 /* Mentorship */
 #mentorship {background:linear-gradient(180deg,#f0f6ff,#e8f3fb); padding:6rem 2rem; display:flex; flex-direction:column; align-items:center; gap:2rem;}
-#mentorship h2 {font-size:3.2rem; color:#1D2D50;}
+#mentorship h2 {font-size:3rem; color:#1D2D50;}
 #mentorship p {font-size:1.25rem; max-width:650px; color:#4A6073;}
 
 /* Footer */
@@ -96,7 +95,7 @@ footer small {display:block; margin-top:1rem; color:#cfd8dc;}
 <!-- Hero -->
 <section id="hero" class="fade-in">
   <h1>Preventive Health in Action</h1>
-  <p>Pop-ups, telehealth, mentorship — actionable care for your community. Designed to empower, guide, and make health accessible.</p>
+  <p>Pop-ups, telehealth, mentorship — actionable care for your community. Empowering individuals to take control of their health.</p>
   <div class="hero-buttons">
     <a href="#events" class="btn btn-primary">Pop-Ups</a>
     <a href="#mentorship" class="btn btn-secondary">Mentorship</a>
@@ -141,7 +140,7 @@ footer small {display:block; margin-top:1rem; color:#cfd8dc;}
 <!-- Mentorship -->
 <section id="mentorship" class="fade-in">
   <h2>Pulse Ignite Mentorship</h2>
-  <p>Learn from health leaders, youth experts, and peers. Develop skills, guide communities, and make an impact where it matters most.</p>
+  <p>Learn from health leaders and peers. Develop skills, guide communities, and make an impact where it matters most.</p>
   <a href="#" class="btn btn-primary">Learn More</a>
 </section>
 
