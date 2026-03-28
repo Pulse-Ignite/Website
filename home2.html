@@ -1,130 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pulse Ignite</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    /* Base Reset */
-    * {margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif;}
-    body {background-color:#F4F4F4; color:#0A3D62;}
-    a {text-decoration:none;}
-    section {width:100%;}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pulse Ignite</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Base */
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif;}
+body {background-color:#F7F7F7; color:#0D1B2A;}
+a {text-decoration:none; transition:0.3s;}
+section {width:100%; padding:4rem 1.5rem;}
+h1,h2,h3 {line-height:1.2;}
 
-    /* Buttons */
-    .btn-primary {background-color:#1ABC9C; color:white; padding:0.75rem 1.5rem; border-radius:9999px; font-weight:600; transition:0.3s;}
-    .btn-primary:hover {background-color:#16A085;}
-    .btn-secondary {border:2px solid white; color:white; padding:0.75rem 1.5rem; border-radius:9999px; font-weight:600; transition:0.3s;}
-    .btn-secondary:hover {background-color:white; color:#1ABC9C;}
+/* Buttons */
+.btn {padding:0.75rem 1.5rem; border-radius:9999px; font-weight:600; display:inline-block;}
+.btn-primary {background-color:#2EC4B6; color:white;}
+.btn-primary:hover {background-color:#28a79b;}
+.btn-secondary {border:2px solid #2EC4B6; color:#2EC4B6;}
+.btn-secondary:hover {background-color:#2EC4B6; color:white;}
 
-    /* Hero */
-    #hero {min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
-      background: linear-gradient(rgba(10,61,98,0.6), rgba(10,61,98,0.6)), url('hero-placeholder.jpg') center/cover no-repeat;
-      color:white; padding:2rem;
-    }
-    #hero h1 {font-size:3rem; font-weight:800; margin-bottom:1rem; line-height:1.2;}
-    #hero p {font-size:1.25rem; margin-bottom:2rem; max-width:700px;}
+/* Hero */
+#hero {min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background: linear-gradient(rgba(13,27,42,0.6), rgba(13,27,42,0.6)), url('hero-placeholder.jpg') center/cover no-repeat; color:white; padding:2rem;}
+#hero h1 {font-size:2.5rem; font-weight:700; margin-bottom:1rem;}
+#hero p {font-size:1.2rem; margin-bottom:2rem; max-width:700px;}
+#hero .buttons {display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;}
 
-    /* Section Headings */
-    section h2 {font-size:2.5rem; font-weight:800; margin-bottom:2rem;}
+/* Events */
+#events {background-color:#FFFFFF;}
+.events-container {display:flex; overflow-x:auto; gap:1rem; padding-bottom:1rem; scroll-snap-type:x mandatory;}
+.event-card {flex:0 0 280px; background:white; border-radius:1.25rem; box-shadow:0 5px 15px rgba(0,0,0,0.05); padding:1rem; scroll-snap-align:start; transition:0.3s;}
+.event-card:hover {transform:translateY(-5px);}
+.event-card img {width:100%; border-radius:1rem; margin-bottom:0.75rem;}
+.event-card h3 {font-size:1.25rem; font-weight:600; margin-bottom:0.5rem;}
+.event-card p {font-size:0.95rem; color:#555; margin-bottom:0.5rem;}
+.event-card a {color:#2EC4B6; font-weight:500;}
+.event-card a:hover {text-decoration:underline;}
 
-    /* Events */
-    #events {padding:4rem 2rem; background-color:#FFFFFF;}
-    .events-container {display:flex; gap:1.5rem; overflow-x:auto; padding-bottom:1rem; scroll-snap-type:x mandatory;}
-    .event-card {flex:0 0 300px; background:white; border-radius:1.5rem; box-shadow:0 10px 20px rgba(0,0,0,0.1); padding:1.5rem; scroll-snap-align:start; transition:0.3s;}
-    .event-card:hover {transform:translateY(-5px); box-shadow:0 15px 25px rgba(0,0,0,0.15);}
-    .event-card img {width:100%; border-radius:1rem; margin-bottom:1rem;}
-    .event-card h3 {font-size:1.5rem; font-weight:700; margin-bottom:0.5rem;}
-    .event-card p {margin-bottom:0.5rem; color:#555;}
-    .event-card a {color:#1ABC9C; font-weight:600; transition:0.3s;}
-    .event-card a:hover {text-decoration:underline;}
+/* Telehealth */
+#telehealth {display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2rem;}
+#telehealth .content {max-width:500px; text-align:center;}
+#telehealth img {width:100%; max-width:400px; border-radius:1rem;}
 
-    /* Telehealth */
-    #telehealth {display:flex; flex-direction:column-reverse; align-items:center; justify-content:center; padding:4rem 2rem; background-color:#F4F4F4;}
-    #telehealth .content {max-width:500px; text-align:center; margin-top:2rem;}
-    #telehealth img {width:100%; max-width:500px; border-radius:1.5rem; box-shadow:0 10px 20px rgba(0,0,0,0.1);}
-    @media(min-width:768px) {
-      #telehealth {flex-direction:row; text-align:left; gap:4rem;}
-      #telehealth .content {margin-top:0;}
-    }
+/* Mentorship */
+#mentorship {background: linear-gradient(135deg, #E0FBFC, #C2F4F2); text-align:center; border-radius:1rem;}
+#mentorship h2 {margin-bottom:1rem;}
+#mentorship p {margin-bottom:1.5rem; color:#0D1B2A;}
 
-    /* Mentorship */
-    #mentorship {padding:4rem 2rem; text-align:center; background: linear-gradient(90deg, #E0F7FA, #B2EBF2);}
-    #mentorship a {margin-top:1rem; display:inline-block;}
+/* Footer */
+footer {background-color:#0D1B2A; color:white; text-align:center; padding:2rem;}
+footer a {color:#2EC4B6; margin:0 0.5rem; font-weight:500;}
 
-    /* Footer */
-    footer {background-color:#0A3D62; color:white; padding:2rem; text-align:center;}
-    footer a {color:#1ABC9C; margin:0 0.5rem;}
-  </style>
+/* Responsive */
+@media(min-width:768px){
+  #telehealth {flex-direction:row; text-align:left;}
+  #telehealth .content {text-align:left;}
+}
+</style>
 </head>
 <body>
 
-  <!-- Hero -->
-  <section id="hero">
-    <h1>Preventive Health in Action — Led by Youth, Empowering Communities</h1>
-    <p>Pop-ups, telehealth, mentorship — actionable care for your community.</p>
-    <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-      <a href="#events" class="btn-primary">Pop-Ups</a>
-      <a href="#mentorship" class="btn-secondary">Mentorship</a>
+<!-- Hero -->
+<section id="hero">
+  <h1>Preventive Health in Action — Led by Youth, Empowering Communities</h1>
+  <p>Pop-ups, telehealth, mentorship — actionable care for your community.</p>
+  <div class="buttons">
+    <a href="#events" class="btn btn-primary">Pop-Ups</a>
+    <a href="#mentorship" class="btn btn-secondary">Mentorship</a>
+  </div>
+</section>
+
+<!-- Pop-Up Events -->
+<section id="events">
+  <h2 style="text-align:center;">Experience Our Pop-Up Clinics</h2>
+  <div class="events-container">
+    <div class="event-card">
+      <img src="popup1.jpg" alt="Pop-Up Event">
+      <h3>Downtown Health Pop-Up</h3>
+      <p>March 30, 2026 | 10am-4pm</p>
+      <p>Vitals, screenings, interactive workshops</p>
+      <a href="#">Learn More</a>
     </div>
-  </section>
-
-  <!-- Pop-Up Events -->
-  <section id="events">
-    <h2>Experience Our Pop-Up Clinics</h2>
-    <div class="events-container">
-      <div class="event-card">
-        <img src="popup1.jpg" alt="Pop-Up Event">
-        <h3>Downtown Health Pop-Up</h3>
-        <p>March 30, 2026 | 10am-4pm</p>
-        <p>Vitals, screenings, interactive workshops</p>
-        <a href="#">Learn More</a>
-      </div>
-      <div class="event-card">
-        <img src="popup2.jpg" alt="Pop-Up Event">
-        <h3>Westside Community Clinic</h3>
-        <p>April 12, 2026 | 9am-3pm</p>
-        <p>Blood pressure, BMI, nutrition guidance</p>
-        <a href="#">Learn More</a>
-      </div>
-      <div class="event-card">
-        <img src="popup3.jpg" alt="Pop-Up Event">
-        <h3>Parkside Wellness Fair</h3>
-        <p>May 5, 2026 | 11am-5pm</p>
-        <p>Stress screening, workshops, health tips</p>
-        <a href="#">Learn More</a>
-      </div>
+    <div class="event-card">
+      <img src="popup2.jpg" alt="Pop-Up Event">
+      <h3>Westside Community Clinic</h3>
+      <p>April 12, 2026 | 9am-3pm</p>
+      <p>Blood pressure, BMI, nutrition guidance</p>
+      <a href="#">Learn More</a>
     </div>
-  </section>
-
-  <!-- Telehealth -->
-  <section id="telehealth">
-    <div class="content">
-      <h2>Connect with Health Experts Anytime</h2>
-      <p>Virtual follow-ups, preventive guidance, and personalized health tips from qualified professionals.</p>
-      <a href="#" class="btn-primary">Learn More</a>
+    <div class="event-card">
+      <img src="popup3.jpg" alt="Pop-Up Event">
+      <h3>Parkside Wellness Fair</h3>
+      <p>May 5, 2026 | 11am-5pm</p>
+      <p>Stress screening, workshops, health tips</p>
+      <a href="#">Learn More</a>
     </div>
-    <img src="telehealth-mockup.png" alt="Telehealth">
-  </section>
+  </div>
+</section>
 
-  <!-- Mentorship -->
-  <section id="mentorship">
-    <h2>Join the Pulse Ignite Mentorship Program</h2>
-    <p>Learn from youth leaders, health professionals, and peers. Guide communities and develop leadership skills.</p>
-    <a href="#" class="btn-primary">Learn More</a>
-  </section>
+<!-- Telehealth -->
+<section id="telehealth">
+  <div class="content">
+    <h2>Connect with Health Experts Anytime</h2>
+    <p>Virtual follow-ups, preventive guidance, and personalized health tips from qualified professionals.</p>
+    <a href="#" class="btn btn-primary">Learn More</a>
+  </div>
+  <img src="telehealth-mockup.png" alt="Telehealth">
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 Pulse Ignite. All rights reserved.</p>
-    <p>
-      <a href="#">Contact</a> |
-      <a href="#">Privacy</a> |
-      <a href="#">Socials</a>
-    </p>
-    <small>HIPAA-compliant health initiative</small>
-  </footer>
+<!-- Mentorship -->
+<section id="mentorship">
+  <h2>Join the Pulse Ignite Mentorship Program</h2>
+  <p>Learn from youth leaders, health professionals, and peers. Guide communities and develop leadership skills.</p>
+  <a href="#" class="btn btn-primary">Learn More</a>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2026 Pulse Ignite. All rights reserved.</p>
+  <p><a href="#">Contact</a> | <a href="#">Privacy</a> | <a href="#">Socials</a></p>
+  <small>HIPAA-compliant health initiative</small>
+</footer>
 
 </body>
 </html>
