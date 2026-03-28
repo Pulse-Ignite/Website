@@ -8,62 +8,62 @@
 <style>
 /* Base Reset */
 * {margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif;}
-body {background: linear-gradient(160deg,#f2f6ff,#e8f0fb); color:#1D2D50; line-height:1.5;}
+body {background:#f0f4f8; color:#1B2B3A; line-height:1.6;}
 a {text-decoration:none; color:inherit; transition:0.3s;}
 
 /* Header */
 header {
   position:fixed; top:0; left:0; width:100%;
-  backdrop-filter:blur(14px) saturate(180%);
-  background:rgba(255,255,255,0.65);
-  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+  backdrop-filter:blur(18px) saturate(180%);
+  background:rgba(255,255,255,0.55);
+  box-shadow:0 6px 25px rgba(0,0,0,0.08);
   padding:1rem 3rem;
   display:flex; justify-content:space-between; align-items:center;
-  border-radius:0 0 20px 20px; z-index:1000;
+  border-radius:0 0 24px 24px; z-index:1000;
 }
-header h1 {font-weight:800; font-size:1.7rem; color:#1D2D50;}
-header nav a {margin-left:2rem; font-weight:500; text-transform:uppercase; color:#1D2D50;}
-header nav a:hover {color:#2EC4B6;}
+header h1 {font-weight:800; font-size:1.8rem; color:#1B2B3A;}
+header nav a {margin-left:2rem; font-weight:500; text-transform:uppercase; color:#1B2B3A;}
+header nav a:hover {color:#3BC9A7;}
 
 /* Hero */
 #hero {min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; padding-top:6rem;}
-#hero h1 {font-size:3.5rem; font-weight:800; margin-bottom:1rem; max-width:900px; text-align:center;}
-#hero p {font-size:1.3rem; color:#4A6073; max-width:650px; margin-bottom:3rem; text-align:center;}
+#hero h1 {font-size:3.8rem; font-weight:800; margin-bottom:1rem; max-width:900px; text-align:center; color:#1B2B3A;}
+#hero p {font-size:1.35rem; color:#4E5D6C; max-width:650px; margin-bottom:3rem; text-align:center;}
 .hero-buttons {display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center;}
-.btn {padding:1rem 2.2rem; font-weight:600; text-transform:uppercase; border:none; cursor:pointer; border-radius:16px; transition:0.3s; box-shadow:0 10px 25px rgba(0,0,0,0.08);}
-.btn-primary {background:#2EC4B6; color:#fff;}
-.btn-primary:hover {background:#1FAAA1;}
-.btn-secondary {background:#fff; color:#2EC4B6; border:2px solid #2EC4B6;}
-.btn-secondary:hover {background:#2EC4B6; color:#fff;}
+.btn {padding:1rem 2.2rem; font-weight:600; text-transform:uppercase; border:none; cursor:pointer; border-radius:20px; transition:0.3s; box-shadow:0 10px 25px rgba(0,0,0,0.06);}
+.btn-primary {background:#3BC9A7; color:#fff;}
+.btn-primary:hover {background:#2CA987;}
+.btn-secondary {background:#fff; color:#3BC9A7; border:2px solid #3BC9A7;}
+.btn-secondary:hover {background:#3BC9A7; color:#fff;}
 
 /* Pop-Up Events */
-#events {display:flex; flex-direction:column; align-items:center; gap:4rem; padding-bottom:4rem;}
-#events h2 {font-size:3rem; font-weight:800; color:#1D2D50;}
+#events {display:flex; flex-direction:column; align-items:center; gap:4rem; padding:6rem 2rem;}
+#events h2 {font-size:3.2rem; font-weight:800; color:#1B2B3A;}
 .events-grid {display:grid; grid-template-columns:1fr; gap:2.5rem; max-width:1200px; width:100%;}
 .event-card {
-  padding:2.5rem; border-radius:20px;
-  background:rgba(255,255,255,0.75); backdrop-filter:blur(10px) saturate(180%);
-  box-shadow:0 15px 30px rgba(0,0,0,0.05);
-  transition:transform 0.3s, box-shadow 0.3s;
+  padding:2.5rem; border-radius:24px;
+  background:rgba(255,255,255,0.65); backdrop-filter:blur(14px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.07);
+  transition:transform 0.35s, box-shadow 0.35s;
 }
-.event-card:hover {transform:translateY(-8px); box-shadow:0 20px 40px rgba(0,0,0,0.08);}
-.event-card h3 {font-size:1.6rem; margin-bottom:0.5rem; color:#1D2D50;}
-.event-card p {margin-bottom:0.5rem; color:#4A6073;}
-.event-card a {margin-top:1rem; display:inline-block; font-weight:600; color:#2EC4B6;}
+.event-card:hover {transform:translateY(-10px); box-shadow:0 20px 40px rgba(0,0,0,0.12);}
+.event-card h3 {font-size:1.7rem; margin-bottom:0.5rem; color:#1B2B3A;}
+.event-card p {margin-bottom:0.5rem; color:#4E5D6C;}
+.event-card a {margin-top:1rem; display:inline-block; font-weight:600; color:#3BC9A7;}
 .event-card a:hover {text-decoration:underline;}
 
 /* Telehealth */
 #telehealth {display:flex; flex-direction:column; align-items:center; gap:3rem; margin-top:6rem;}
 #telehealth .content {max-width:500px;}
-#telehealth img {width:100%; max-width:480px; border-radius:20px; object-fit:cover; box-shadow:0 15px 35px rgba(0,0,0,0.08);}
+#telehealth img {width:100%; max-width:480px; border-radius:24px; object-fit:cover; box-shadow:0 18px 40px rgba(0,0,0,0.08);}
 
 /* Mentorship */
-#mentorship {background:linear-gradient(180deg,#f0f6ff,#e8f3fb); padding:6rem 2rem; display:flex; flex-direction:column; align-items:center; gap:2rem;}
-#mentorship h2 {font-size:3rem; color:#1D2D50;}
-#mentorship p {font-size:1.25rem; max-width:650px; color:#4A6073;}
+#mentorship {background:#e6f2f1; padding:6rem 2rem; display:flex; flex-direction:column; align-items:center; gap:2rem;}
+#mentorship h2 {font-size:3rem; color:#1B2B3A;}
+#mentorship p {font-size:1.25rem; max-width:650px; color:#4E5D6C; text-align:center;}
 
 /* Footer */
-footer {background:#1D2D50; color:#fff; padding:3rem 2rem; text-align:center;}
+footer {background:#1B2B3A; color:#fff; padding:3rem 2rem; text-align:center;}
 footer a {color:#fff; margin:0 0.5rem; font-weight:500;}
 footer small {display:block; margin-top:1rem; color:#cfd8dc;}
 
@@ -95,7 +95,7 @@ footer small {display:block; margin-top:1rem; color:#cfd8dc;}
 <!-- Hero -->
 <section id="hero" class="fade-in">
   <h1>Preventive Health in Action</h1>
-  <p>Pop-ups, telehealth, mentorship — actionable care for your community. Empowering individuals to take control of their health.</p>
+  <p>Pop-ups, telehealth, mentorship — actionable care for your community. Empowering individuals to take control of their health journey.</p>
   <div class="hero-buttons">
     <a href="#events" class="btn btn-primary">Pop-Ups</a>
     <a href="#mentorship" class="btn btn-secondary">Mentorship</a>
@@ -131,7 +131,7 @@ footer small {display:block; margin-top:1rem; color:#cfd8dc;}
 <section id="telehealth" class="fade-in">
   <div class="content">
     <h2>Telehealth Access</h2>
-    <p>Virtual follow-ups, preventive guidance, personalized health tips from qualified professionals. Accessible anywhere, anytime.</p>
+    <p>Virtual follow-ups, preventive guidance, and personalized health tips from qualified professionals. Accessible anywhere, anytime.</p>
     <a href="#" class="btn btn-primary">Learn More</a>
   </div>
   <img src="telehealth-mockup.png" alt="Telehealth">
