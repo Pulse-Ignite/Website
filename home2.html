@@ -1,196 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pulse Ignite</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-  /* --- Base & Reset --- */
-  * {margin:0; padding:0; box-sizing:border-box;}
-  html {scroll-behavior: smooth;}
-  body {font-family: 'Poppins', sans-serif; color:#E0E0E0; background:#0F111A; line-height:1.6;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulse Ignite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Base Reset */
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif;}
+    body {background-color:#F4F4F4; color:#0A3D62;}
+    a {text-decoration:none;}
+    section {width:100%;}
 
-  a {text-decoration:none; color:inherit;}
-  button {cursor:pointer; border:none; border-radius:8px; font-weight:600;}
+    /* Buttons */
+    .btn-primary {background-color:#1ABC9C; color:white; padding:0.75rem 1.5rem; border-radius:9999px; font-weight:600; transition:0.3s;}
+    .btn-primary:hover {background-color:#16A085;}
+    .btn-secondary {border:2px solid white; color:white; padding:0.75rem 1.5rem; border-radius:9999px; font-weight:600; transition:0.3s;}
+    .btn-secondary:hover {background-color:white; color:#1ABC9C;}
 
-  /* --- Colors --- */
-  :root {
-    --primary: #14B8A6;
-    --secondary: #84F1ED;
-    --bg-dark: #0F111A;
-    --text-light: #E0E0E0;
-  }
+    /* Hero */
+    #hero {min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
+      background: linear-gradient(rgba(10,61,98,0.6), rgba(10,61,98,0.6)), url('hero-placeholder.jpg') center/cover no-repeat;
+      color:white; padding:2rem;
+    }
+    #hero h1 {font-size:3rem; font-weight:800; margin-bottom:1rem; line-height:1.2;}
+    #hero p {font-size:1.25rem; margin-bottom:2rem; max-width:700px;}
 
-  /* --- Header --- */
-  header {
-    position: fixed; width:100%; top:0; left:0; z-index:1000;
-    background: rgba(15,17,26,0.85); backdrop-filter: blur(10px);
-    display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem;
-  }
-  header .logo {font-size:1.6rem; font-weight:700; color:var(--primary);}
-  nav a {margin-left:2rem; font-weight:500; transition:0.2s;}
-  nav a:hover {color:var(--secondary);}
+    /* Section Headings */
+    section h2 {font-size:2.5rem; font-weight:800; margin-bottom:2rem;}
 
-  /* --- Hero --- */
-  .hero {
-    min-height:100vh;
-    display:flex; flex-direction:column; justify-content:center; align-items:center;
-    text-align:center;
-    background: linear-gradient(to bottom, rgba(15,17,26,0.9), rgba(15,17,26,0.9)),
-                url('https://images.unsplash.com/photo-1588776814546-bb4400e60d2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8aGVhbHRofHx8fHx8MTY5ODk3NzU0OA&ixlib=rb-4.0.3&q=80&w=1080') center/cover no-repeat;
-    color:white;
-    padding:0 2rem;
-  }
-  .hero h1 {font-size:3rem; font-weight:700; margin-bottom:1rem; background: linear-gradient(90deg,var(--primary),var(--secondary)); -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
-  .hero p {font-size:1.2rem; margin-bottom:2rem; max-width:600px;}
-  .hero .btn {background:linear-gradient(90deg,var(--primary),var(--secondary)); color:#0F111A; padding:0.8rem 2rem; font-size:1rem; transition:0.3s;}
-  .hero .btn:hover {transform:scale(1.05);}
+    /* Events */
+    #events {padding:4rem 2rem; background-color:#FFFFFF;}
+    .events-container {display:flex; gap:1.5rem; overflow-x:auto; padding-bottom:1rem; scroll-snap-type:x mandatory;}
+    .event-card {flex:0 0 300px; background:white; border-radius:1.5rem; box-shadow:0 10px 20px rgba(0,0,0,0.1); padding:1.5rem; scroll-snap-align:start; transition:0.3s;}
+    .event-card:hover {transform:translateY(-5px); box-shadow:0 15px 25px rgba(0,0,0,0.15);}
+    .event-card img {width:100%; border-radius:1rem; margin-bottom:1rem;}
+    .event-card h3 {font-size:1.5rem; font-weight:700; margin-bottom:0.5rem;}
+    .event-card p {margin-bottom:0.5rem; color:#555;}
+    .event-card a {color:#1ABC9C; font-weight:600; transition:0.3s;}
+    .event-card a:hover {text-decoration:underline;}
 
-  /* --- Sections --- */
-  section {padding:6rem 2rem;}
-  .container {max-width:1200px; margin:0 auto;}
+    /* Telehealth */
+    #telehealth {display:flex; flex-direction:column-reverse; align-items:center; justify-content:center; padding:4rem 2rem; background-color:#F4F4F4;}
+    #telehealth .content {max-width:500px; text-align:center; margin-top:2rem;}
+    #telehealth img {width:100%; max-width:500px; border-radius:1.5rem; box-shadow:0 10px 20px rgba(0,0,0,0.1);}
+    @media(min-width:768px) {
+      #telehealth {flex-direction:row; text-align:left; gap:4rem;}
+      #telehealth .content {margin-top:0;}
+    }
 
-  /* --- Cards (Programs) --- */
-  .cards {display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem;}
-  .card {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    padding:2rem; border-radius:16px;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .card:hover {transform:translateY(-10px); box-shadow:0 10px 30px rgba(20,184,166,0.3);}
-  .card h3 {color:var(--primary); margin-bottom:0.5rem; font-size:1.3rem;}
-  .card p {color:#ccc;}
+    /* Mentorship */
+    #mentorship {padding:4rem 2rem; text-align:center; background: linear-gradient(90deg, #E0F7FA, #B2EBF2);}
+    #mentorship a {margin-top:1rem; display:inline-block;}
 
-  /* --- Impact Section --- */
-  .impact {display:flex; justify-content:space-around; flex-wrap:wrap; gap:2rem; text-align:center;}
-  .impact div {flex:1 1 150px; background: rgba(255,255,255,0.05); padding:2rem; border-radius:16px; backdrop-filter: blur(10px);}
-  .impact div h2 {font-size:2rem; color:var(--primary); margin-bottom:0.5rem;}
-  .impact div p {color:#ccc;}
-
-  /* --- Get Involved --- */
-  #volunteer form {display:flex; flex-direction:column; gap:1rem; max-width:500px; margin:auto;}
-  #volunteer input, #volunteer textarea {
-    padding:0.8rem; border-radius:10px; border:none; background: rgba(255,255,255,0.1); color:#fff;
-    transition:0.3s;
-  }
-  #volunteer input:focus, #volunteer textarea:focus {background: rgba(255,255,255,0.2); outline:none;}
-  #volunteer button {background: linear-gradient(90deg,var(--primary),var(--secondary)); color:#0F111A; padding:0.8rem; transition:0.3s;}
-  #volunteer button:hover {transform:scale(1.05);}
-
-  /* --- Footer --- */
-  footer {background:#0F111A; text-align:center; padding:3rem 2rem; color:#aaa;}
-  footer a {margin:0 0.5rem; color:#aaa; transition:0.2s;}
-  footer a:hover {color:var(--secondary);}
-
-  /* --- Scroll Animations --- */
-  [data-animate] {opacity:0; transform:translateY(30px); transition:all 0.8s ease-out;}
-  [data-animate].visible {opacity:1; transform:translateY(0);}
-  
-  /* --- Responsive --- */
-  @media(max-width:768px){.hero h1 {font-size:2rem;}}
-</style>
+    /* Footer */
+    footer {background-color:#0A3D62; color:white; padding:2rem; text-align:center;}
+    footer a {color:#1ABC9C; margin:0 0.5rem;}
+  </style>
 </head>
 <body>
 
-<!-- Header -->
-<header>
-  <div class="logo">Pulse Ignite</div>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#programs">Programs</a>
-    <a href="#volunteer">Get Involved</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <!-- Hero -->
+  <section id="hero">
+    <h1>Preventive Health in Action — Led by Youth, Empowering Communities</h1>
+    <p>Pop-ups, telehealth, mentorship — actionable care for your community.</p>
+    <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+      <a href="#events" class="btn-primary">Pop-Ups</a>
+      <a href="#mentorship" class="btn-secondary">Mentorship</a>
+    </div>
+  </section>
 
-<!-- Hero -->
-<section class="hero">
-  <h1>Healthcare, Simplified</h1>
-  <p>Pulse Ignite provides modern, accessible healthcare resources and programs to empower communities everywhere.</p>
-  <a href="#volunteer" class="btn">Join the Movement</a>
-</section>
-
-<!-- About -->
-<section id="about" data-animate>
-  <div class="container">
-    <h2>About Pulse Ignite</h2>
-    <p>We bridge the gap between health resources and communities, delivering actionable programs, telehealth guidance, and awareness campaigns to improve lives.</p>
-  </div>
-</section>
-
-<!-- Programs -->
-<section id="programs" data-animate>
-  <div class="container">
-    <h2>Our Programs</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Community Workshops</h3>
-        <p>Interactive sessions on wellness, preventive care, and healthy living for students, families, and local communities.</p>
+  <!-- Pop-Up Events -->
+  <section id="events">
+    <h2>Experience Our Pop-Up Clinics</h2>
+    <div class="events-container">
+      <div class="event-card">
+        <img src="popup1.jpg" alt="Pop-Up Event">
+        <h3>Downtown Health Pop-Up</h3>
+        <p>March 30, 2026 | 10am-4pm</p>
+        <p>Vitals, screenings, interactive workshops</p>
+        <a href="#">Learn More</a>
       </div>
-      <div class="card">
-        <h3>Telehealth Guidance</h3>
-        <p>Remote healthcare resources and guidance to connect you with professionals digitally, wherever you are.</p>
+      <div class="event-card">
+        <img src="popup2.jpg" alt="Pop-Up Event">
+        <h3>Westside Community Clinic</h3>
+        <p>April 12, 2026 | 9am-3pm</p>
+        <p>Blood pressure, BMI, nutrition guidance</p>
+        <a href="#">Learn More</a>
       </div>
-      <div class="card">
-        <h3>Awareness Campaigns</h3>
-        <p>Programs that inform and empower communities on preventive health, nutrition, and mental wellness.</p>
+      <div class="event-card">
+        <img src="popup3.jpg" alt="Pop-Up Event">
+        <h3>Parkside Wellness Fair</h3>
+        <p>May 5, 2026 | 11am-5pm</p>
+        <p>Stress screening, workshops, health tips</p>
+        <a href="#">Learn More</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Impact -->
-<section class="impact" data-animate>
-  <div><h2>100+</h2><p>Workshops Hosted</p></div>
-  <div><h2>500+</h2><p>Volunteers Engaged</p></div>
-  <div><h2>10k+</h2><p>Community Members Reached</p></div>
-</section>
+  <!-- Telehealth -->
+  <section id="telehealth">
+    <div class="content">
+      <h2>Connect with Health Experts Anytime</h2>
+      <p>Virtual follow-ups, preventive guidance, and personalized health tips from qualified professionals.</p>
+      <a href="#" class="btn-primary">Learn More</a>
+    </div>
+    <img src="telehealth-mockup.png" alt="Telehealth">
+  </section>
 
-<!-- Get Involved -->
-<section id="volunteer" data-animate>
-  <div class="container">
-    <h2>Get Involved</h2>
-    <p>Volunteer, donate, or spread awareness — every effort makes a difference.</p>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Message" rows="5"></textarea>
-      <button type="submit">Sign Up</button>
-    </form>
-  </div>
-</section>
+  <!-- Mentorship -->
+  <section id="mentorship">
+    <h2>Join the Pulse Ignite Mentorship Program</h2>
+    <p>Learn from youth leaders, health professionals, and peers. Guide communities and develop leadership skills.</p>
+    <a href="#" class="btn-primary">Learn More</a>
+  </section>
 
-<!-- Contact -->
-<section id="contact" data-animate>
-  <div class="container">
-    <h2>Contact Us</h2>
-    <p>Email: info@pulseignite.org</p>
-    <p>Follow us on social media for updates.</p>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <p>&copy; 2026 Pulse Ignite. All rights reserved.</p>
-  <div>
-    <a href="#">Instagram</a> | <a href="#">Twitter</a> | <a href="#">LinkedIn</a>
-  </div>
-</footer>
-
-<script>
-  // Scroll animations
-  const animateEls = document.querySelectorAll('[data-animate]');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-      }
-    });
-  }, {threshold:0.2});
-  animateEls.forEach(el => observer.observe(el));
-</script>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Pulse Ignite. All rights reserved.</p>
+    <p>
+      <a href="#">Contact</a> |
+      <a href="#">Privacy</a> |
+      <a href="#">Socials</a>
+    </p>
+    <small>HIPAA-compliant health initiative</small>
+  </footer>
 
 </body>
 </html>
